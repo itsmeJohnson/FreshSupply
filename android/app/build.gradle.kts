@@ -36,7 +36,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"${customUrl ?: defaultDevUrl}\"")
         }
         release {
-            val defaultProdUrl = "https://freshsupply-api.vercel.app/api/"
+            val defaultProdUrl = "https://freshsupply-backend.vercel.app/api/"
             val customUrl = project.findProperty("freshSupplyApiBaseUrl") as? String
                 ?: System.getenv("FRESHSUPPLY_API_URL")
             buildConfigField("String", "BASE_URL", "\"${customUrl ?: defaultProdUrl}\"")
