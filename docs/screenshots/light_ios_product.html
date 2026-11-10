@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply iOS App — Product Detail (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 393px;
+      height: 852px;
+    }
+    .font-mono-numbers {
+      font-family: -apple-system, monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col relative w-[393px] h-[852px] bg-[#F7F9F8] border border-[#E2E8E5]">
+  
+  <!-- Dynamic Island & iOS Status Bar (Light Mode) -->
+  <div class="h-11 px-7 pt-3 flex justify-between items-center text-xs font-semibold text-[#172B24] z-30 select-none bg-white">
+    <span class="text-[13px] font-bold tracking-tight">9:41</span>
+    
+    <!-- Dynamic Island Pill -->
+    <div class="w-28 h-6 bg-black rounded-full flex items-center justify-between px-2.5 mx-auto border border-black/10 shadow-sm">
+      <div class="w-2.5 h-2.5 rounded-full bg-[#111111] border border-white/20"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-[#10B981]/80 animate-pulse"></div>
+    </div>
+
+    <div class="flex items-center gap-1.5 text-[11px]">
+      <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"/></svg>
+      <span class="font-bold">5G</span>
+      <div class="w-5 h-2.5 border border-[#172B24] rounded-sm p-0.5 flex items-center">
+        <div class="w-3 h-1.5 bg-[#172B24] rounded-2xs"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- iOS Navigation Bar (Light Mode) -->
+  <div class="px-4 py-2 flex items-center justify-between bg-white/90 backdrop-blur-xl border-b border-[#E2E8E5]">
+    <button class="flex items-center gap-1 text-[#047857] text-sm font-semibold">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+      Produce
+    </button>
+    <div class="text-center">
+      <span class="text-xs font-bold text-[#172B24] tracking-tight">Red Onions (Grade-A)</span>
+      <div class="text-[9px] text-[#047857] font-semibold">In Stock • FreshSupply Hub</div>
+    </div>
+    <button class="w-8 h-8 rounded-full bg-[#F1F5F3] flex items-center justify-center text-[#172B24]">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+    </button>
+  </div>
+
+  <!-- iOS Scrollable Body (Light Mode) -->
+  <div class="flex-1 overflow-y-auto px-4 py-3 space-y-3.5 pb-24 bg-[#F7F9F8]">
+    
+    <!-- Hero Image Card with Clean White Border -->
+    <div class="h-44 rounded-3xl overflow-hidden bg-white relative border border-[#E2E8E5] shadow-xs">
+      <img src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=600&auto=format&fit=crop&q=80" alt="Red Onions" class="w-full h-full object-cover"/>
+      <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#E2E8E5] text-[10px] font-bold text-[#047857]">
+        Nashik Batch #8421
+      </div>
+      <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#FEF3C7] border border-[#F59E0B] text-[10px] font-bold text-[#B45309]">
+        ★ Grade A Sorted
+      </div>
+    </div>
+
+    <!-- Title & Live Rate -->
+    <div>
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl font-black text-[#172B24] tracking-tight">Premium Grade-A Red Onions</h1>
+        <span class="text-base font-black text-[#047857] font-mono-numbers">₹30.00<span class="text-xs text-[#64748B] font-normal"> / kg</span></span>
+      </div>
+      <p class="text-xs text-[#64748B] mt-0.5">Nashik Origin • Uniform 55–75mm • Moisture &le; 12%</p>
+    </div>
+
+    <!-- iOS Native Segmented Picker (Light Mode) -->
+    <div class="p-1 bg-[#E2E8E5]/70 rounded-xl flex border border-[#E2E8E5]">
+      <button class="flex-1 py-1.5 rounded-lg bg-white text-[#172B24] font-bold text-xs shadow-xs flex items-center justify-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        Bags (50 kg)
+      </button>
+      <button class="flex-1 py-1.5 rounded-lg text-[#64748B] font-semibold text-xs flex items-center justify-center gap-1.5 hover:text-[#172B24]">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+        Crates (20 kg)
+      </button>
+    </div>
+
+    <!-- Specs Grid (Clean White Cards) -->
+    <div class="grid grid-cols-4 gap-2 text-center text-xs">
+      <div class="p-2 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B]">Origin</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">Nashik</div>
+      </div>
+      <div class="p-2 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B]">Avg. Size</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">65mm</div>
+      </div>
+      <div class="p-2 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B]">Moisture</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">&le; 12%</div>
+      </div>
+      <div class="p-2 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B]">Shelf Life</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">45 Days</div>
+      </div>
+    </div>
+
+    <!-- Wholesale Pricing Slab Table (iOS Light Style) -->
+    <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 shadow-xs">
+      <div class="text-[10px] font-extrabold text-[#047857] uppercase tracking-wider flex items-center justify-between">
+        <span>Wholesale Volume Discount Tiers</span>
+        <span class="text-[9px] text-[#64748B]">Bags (50 kg)</span>
+      </div>
+
+      <div class="space-y-1.5 font-mono-numbers text-xs">
+        <div class="flex justify-between items-center text-[#172B24] py-1 border-b border-[#F1F5F3]">
+          <span>1 – 9 Bags</span>
+          <span class="font-bold">₹1,600 <span class="text-[10px] text-[#64748B] font-normal">(₹32.00/kg)</span></span>
+        </div>
+        <div class="flex justify-between items-center text-[#172B24] py-1 border-b border-[#F1F5F3]">
+          <span>10 – 49 Bags</span>
+          <span class="text-[#047857] font-bold">₹1,550 <span class="text-[10px] font-normal text-[#047857]">(3% Off • ₹31.00/kg)</span></span>
+        </div>
+        <div class="flex justify-between items-center text-[#047857] py-1.5 font-bold bg-[#ECFDF5] px-2 rounded-xl border border-[#A7F3D0]">
+          <span>&ge; 50 Bags</span>
+          <span class="font-black text-sm">₹1,500 <span class="text-[10px] font-normal">(6% Off • ₹30.00/kg)</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B2B Account Credit Status Banner -->
+    <div class="p-3 bg-white rounded-2xl border border-[#A7F3D0] bg-gradient-to-r from-[#ECFDF5] to-white flex items-center justify-between text-xs shadow-xs">
+      <div>
+        <div class="text-[10px] text-[#047857] font-bold">Logged-in Commercial Buyer</div>
+        <div class="font-bold text-[#172B24]">GreenMart Retail • Net 30 Terms</div>
+      </div>
+      <span class="px-2.5 py-1 bg-[#047857] text-white font-bold text-[10px] rounded-full shadow-xs">
+        ₹3.75L Credit Avail
+      </span>
+    </div>
+
+  </div>
+
+  <!-- iOS Bottom Action Bar (Light Mode) -->
+  <div class="p-4 pb-7 bg-white/95 backdrop-blur-xl border-t border-[#E2E8E5] flex items-center gap-3 shadow-lg">
+    <!-- Stepper -->
+    <div class="flex items-center bg-[#F1F5F3] rounded-full p-1 border border-[#E2E8E5]">
+      <button class="w-8 h-8 rounded-full bg-white text-[#172B24] font-bold text-sm flex items-center justify-center hover:bg-[#E2E8E5] shadow-xs">-</button>
+      <span class="w-9 text-center font-bold font-mono-numbers text-[#172B24]">10</span>
+      <button class="w-8 h-8 rounded-full bg-white text-[#172B24] font-bold text-sm flex items-center justify-center hover:bg-[#E2E8E5] shadow-xs">+</button>
+    </div>
+
+    <!-- Add to Cart CTA -->
+    <button class="flex-1 py-3.5 bg-[#047857] text-white font-extrabold rounded-full text-sm shadow-md shadow-[#047857]/20 flex items-center justify-center gap-2 active:scale-98 transition-transform hover:bg-[#036549]">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+      Add 10 Bags (₹15,500)
+    </button>
+  </div>
+
+  <!-- iOS Home Bar Indicator -->
+  <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#CBD5E1] rounded-full z-40"></div>
+
+</body>
+</html>
+

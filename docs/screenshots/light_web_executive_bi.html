@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply Executive BI & P&L Performance (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 1440px;
+      height: 900px;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col w-[1440px] h-[900px] bg-[#F7F9F8]">
+
+  <!-- Header -->
+  <header class="h-16 px-6 bg-white border-b border-[#E2E8E5] flex items-center justify-between z-20 flex-shrink-0">
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white flex items-center justify-center font-black shadow-xs">FS</div>
+        <div>
+          <span class="text-base font-black tracking-tight text-[#172B24]">FreshSupply</span>
+          <span class="block text-[9px] text-[#047857] font-bold uppercase tracking-wider -mt-1">Executive BI & Supply Chain P&L</span>
+        </div>
+      </div>
+      <div class="w-80 h-10 px-3.5 bg-[#F1F5F3] rounded-xl flex items-center gap-2 border border-[#E2E8E5] text-xs text-[#64748B]">
+        <svg class="w-4 h-4 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span class="text-[#64748B]">Search metrics, unit economics, wastage rates...</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="px-3 py-1.5 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-xs text-[#047857] font-bold">
+        Monthly Run Rate: ₹2.84 Cr • Gross Margin: 18.6% • Cold Waste: 1.4%
+      </span>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-full bg-[#047857] text-white font-bold text-xs flex items-center justify-center">JD</div>
+        <div class="text-xs">
+          <div class="font-bold text-[#172B24]">Johnson David</div>
+          <div class="text-[10px] text-[#64748B]">Chief Operating Officer</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white border-r border-[#E2E8E5] p-4 flex flex-col justify-between flex-shrink-0">
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-[#94A3B8] uppercase tracking-wider px-3 mb-2">Analytics</div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          Dashboard
+        </div>
+        <div class="px-3 py-2 rounded-xl font-bold text-xs bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            Executive BI & P&L
+          </span>
+          <span class="px-1.5 py-0.5 rounded-full bg-[#047857] text-white text-[10px] font-bold">Live</span>
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          Operational Reports
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
+          Settings
+        </div>
+      </div>
+      <div class="p-3 bg-[#ECFDF5] rounded-2xl border border-[#A7F3D0] text-xs">
+        <div class="font-bold text-[#047857]">EBITDA Positive</div>
+        <div class="text-[11px] text-[#065F46] mt-0.5">Q3 Operating Margin: +11.2%</div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 p-6 space-y-6 overflow-y-auto">
+      
+      <!-- Top Title -->
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black text-[#172B24] tracking-tight">Executive BI & Unit Economics P&L</h1>
+          <p class="text-xs text-[#64748B] mt-1">Multi-hub gross margins, logistics freight cost per MT, and cold chain shrinkage analysis</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="px-3.5 py-2 bg-white border border-[#E2E8E5] rounded-xl text-xs font-bold text-[#172B24] shadow-xs">
+            Download Financial Deck (PDF)
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Core Financial KPIs -->
+      <div class="grid grid-cols-4 gap-4">
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Monthly GMV (Gross Merchandise)</span>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers mt-1">₹2,84,50,000</div>
+          <span class="text-[11px] text-[#10B981] font-bold">↑ +14.2% MoM growth</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Gross Procurement Margin</span>
+          <div class="text-2xl font-black text-[#047857] font-mono-numbers mt-1">18.6%</div>
+          <span class="text-[11px] text-[#10B981] font-bold">Target: 17.5% (Beat by +1.1%)</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Cold Chain Shrinkage & Waste</span>
+          <div class="text-2xl font-black text-[#10B981] font-mono-numbers mt-1">1.4%</div>
+          <span class="text-[11px] text-[#047857] font-bold">Industry average: 8.5% (Saved ₹22L)</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Logistics Cost / MT Delivered</span>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers mt-1">₹1,180 / MT</div>
+          <span class="text-[11px] text-[#10B981] font-bold">↓ 4.8% via dynamic routing</span>
+        </div>
+      </div>
+
+      <!-- Unit Economics Table by Produce Category -->
+      <div class="bg-white rounded-2xl border border-[#E2E8E5] shadow-xs overflow-hidden">
+        <div class="p-4 border-b border-[#E2E8E5] flex items-center justify-between">
+          <div>
+            <h3 class="font-black text-base text-[#172B24]">Category Unit Economics & Contribution Margins</h3>
+            <p class="text-xs text-[#64748B]">Procurement cost vs wholesale billing rate with freight deductions</p>
+          </div>
+          <span class="text-xs text-[#10B981] font-bold">100% Margin Protected</span>
+        </div>
+
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#F1F5F3] border-b border-[#E2E8E5] text-[#64748B] font-bold uppercase tracking-wider text-[10px]">
+            <tr>
+              <th class="py-3.5 px-4">Produce Category</th>
+              <th class="py-3.5 px-4">MT Volume</th>
+              <th class="py-3.5 px-4">Avg Farm Sourcing / kg</th>
+              <th class="py-3.5 px-4">Avg Wholesale Realized / kg</th>
+              <th class="py-3.5 px-4">Freight & Cold Hub / kg</th>
+              <th class="py-3.5 px-4">Net Contribution Margin</th>
+              <th class="py-3.5 px-4 text-right">Trend</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#E2E8E5] text-[#172B24]">
+            
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="text-[#172B24] block">Fresh Vegetables (Tomato, Onion, Potato)</span>
+                <span class="text-[10px] text-[#64748B]">High-frequency daily procurement</span>
+              </td>
+              <td class="py-4 px-4 font-mono-numbers font-bold">1,840 MT</td>
+              <td class="py-4 px-4 font-mono-numbers">₹26.40</td>
+              <td class="py-4 px-4 font-mono-numbers font-bold text-[#047857]">₹34.80</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">₹1.80</td>
+              <td class="py-4 px-4 font-mono-numbers">
+                <span class="px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#047857] font-bold text-[11px] border border-[#A7F3D0]">
+                  19.0% Margin (₹6.60/kg)
+                </span>
+              </td>
+              <td class="py-4 px-4 text-right font-bold text-[#10B981]">↑ +1.2%</td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="text-[#172B24] block">Grains & Staples (Basmati, Sona Masoori, Dals)</span>
+                <span class="text-[10px] text-[#64748B]">Predictable shelf life • Bulk 50kg bags</span>
+              </td>
+              <td class="py-4 px-4 font-mono-numbers font-bold">1,210 MT</td>
+              <td class="py-4 px-4 font-mono-numbers">₹42.00</td>
+              <td class="py-4 px-4 font-mono-numbers font-bold text-[#047857]">₹52.50</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">₹1.20</td>
+              <td class="py-4 px-4 font-mono-numbers">
+                <span class="px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#047857] font-bold text-[11px] border border-[#A7F3D0]">
+                  17.7% Margin (₹9.30/kg)
+                </span>
+              </td>
+              <td class="py-4 px-4 text-right font-bold text-[#10B981]">↑ +0.8%</td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="text-[#172B24] block">Exotic & Controlled Atmosphere (Capsicum, Broccoli)</span>
+                <span class="text-[10px] text-[#64748B]">Reefer transit & HORECA premium buyers</span>
+              </td>
+              <td class="py-4 px-4 font-mono-numbers font-bold">340 MT</td>
+              <td class="py-4 px-4 font-mono-numbers">₹68.50</td>
+              <td class="py-4 px-4 font-mono-numbers font-bold text-[#047857]">₹89.00</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">₹2.40</td>
+              <td class="py-4 px-4 font-mono-numbers">
+                <span class="px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#047857] font-bold text-[11px] border border-[#A7F3D0]">
+                  20.3% Margin (₹18.10/kg)
+                </span>
+              </td>
+              <td class="py-4 px-4 text-right font-bold text-[#10B981]">↑ +2.4%</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

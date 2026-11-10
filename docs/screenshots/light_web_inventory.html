@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply Inventory & Cold Storage Hubs (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 1440px;
+      height: 900px;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col w-[1440px] h-[900px] bg-[#F7F9F8]">
+
+  <!-- Header -->
+  <header class="h-16 px-6 bg-white border-b border-[#E2E8E5] flex items-center justify-between z-20 flex-shrink-0">
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white flex items-center justify-center font-black shadow-xs">FS</div>
+        <div>
+          <span class="text-base font-black tracking-tight text-[#172B24]">FreshSupply</span>
+          <span class="block text-[9px] text-[#047857] font-bold uppercase tracking-wider -mt-1">Inventory & Cold Storage Hubs</span>
+        </div>
+      </div>
+      <div class="w-80 h-10 px-3.5 bg-[#F1F5F3] rounded-xl flex items-center gap-2 border border-[#E2E8E5] text-xs text-[#64748B]">
+        <svg class="w-4 h-4 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span class="text-[#64748B]">Search SKU batch, chamber, humidity level...</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="px-3 py-1.5 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-xs text-[#047857] font-bold">
+        Total Physical Stock: 3,842.5 MT across 4 Cold Hubs
+      </span>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-full bg-[#047857] text-white font-bold text-xs flex items-center justify-center">JD</div>
+        <div class="text-xs">
+          <div class="font-bold text-[#172B24]">Johnson David</div>
+          <div class="text-[10px] text-[#64748B]">Cold Chain QA Lead</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white border-r border-[#E2E8E5] p-4 flex flex-col justify-between flex-shrink-0">
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-[#94A3B8] uppercase tracking-wider px-3 mb-2">Commerce</div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          Dashboard
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          Wholesale Orders
+        </div>
+        <div class="px-3 py-2 rounded-xl font-bold text-xs bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+            Inventory Hubs
+          </span>
+          <span class="px-1.5 py-0.5 rounded-full bg-[#D97706] text-white text-[10px] font-bold">6 Alerts</span>
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Customer Pricing
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+          Dispatch & Fleet
+        </div>
+      </div>
+      <div class="p-3 bg-[#ECFDF5] rounded-2xl border border-[#A7F3D0] text-xs">
+        <div class="font-bold text-[#047857]">Cold Hub Chambers Active</div>
+        <div class="text-[11px] text-[#065F46] mt-0.5">Average Temp: 4.2°C • 88% RH</div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 p-6 space-y-6 overflow-y-auto">
+      
+      <!-- KPI cards -->
+      <div class="grid grid-cols-4 gap-4">
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Total Physical Stock</span>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers mt-1">3,842.5 MT</div>
+          <span class="text-[11px] text-[#10B981] font-semibold">↑ +6.8% vs. yesterday</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Chamber Capacity Utilized</span>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers mt-1">78.4%</div>
+          <span class="text-[11px] text-[#64748B] font-semibold">1,157.5 MT available space</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Stock Cover (Average)</span>
+          <div class="text-2xl font-black text-[#047857] font-mono-numbers mt-1">8.2 Days</div>
+          <span class="text-[11px] text-[#10B981] font-semibold">Optimal replenishment cycle</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Depletion Alerts</span>
+          <div class="text-2xl font-black text-[#D97706] font-mono-numbers mt-1">6 SKUs</div>
+          <span class="text-[11px] text-[#DC2626] font-semibold">Requires vendor PO issue</span>
+        </div>
+      </div>
+
+      <!-- Real-time Stock Table -->
+      <div class="bg-white rounded-2xl border border-[#E2E8E5] shadow-xs overflow-hidden">
+        <div class="p-4 border-b border-[#E2E8E5] flex items-center justify-between">
+          <div>
+            <h3 class="font-black text-base text-[#172B24]">Real-Time Bulk Produce Inventory</h3>
+            <p class="text-xs text-[#64748B]">Aggregated multi-hub stock levels, daily depletion rate and reorder status</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="px-3 py-1.5 bg-[#F1F5F3] text-[#172B24] rounded-xl text-xs font-bold border border-[#E2E8E5]">
+              Filter: All Categories
+            </button>
+            <button class="px-3 py-1.5 bg-[#047857] text-white rounded-xl text-xs font-bold">
+              + Inbound GRN Entry
+            </button>
+          </div>
+        </div>
+
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#F1F5F3] border-b border-[#E2E8E5] text-[#64748B] font-bold uppercase tracking-wider text-[10px]">
+            <tr>
+              <th class="py-3.5 px-4">Produce SKU</th>
+              <th class="py-3.5 px-4">Storage Zone</th>
+              <th class="py-3.5 px-4">Current Stock</th>
+              <th class="py-3.5 px-4">Daily Burn Rate</th>
+              <th class="py-3.5 px-4">Days of Cover</th>
+              <th class="py-3.5 px-4">Depletion Risk</th>
+              <th class="py-3.5 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#E2E8E5] text-[#172B24]">
+            
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-sm">🍅</span>
+                <div>
+                  <span class="block text-[#172B24] font-bold">Tomato (Grade-A Desi)</span>
+                  <span class="text-[10px] text-[#64748B]">Batch: #BCH-78421 • Harvest: 24h ago</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono text-[#64748B]">Chamber 2 (12°C - 14°C)</td>
+              <td class="py-4 px-4 font-mono-numbers font-black text-[#172B24]">162.5 MT</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">28.4 MT / day</td>
+              <td class="py-4 px-4 font-mono-numbers font-bold text-[#D97706]">5.7 Days</td>
+              <td class="py-4 px-4">
+                <span class="px-2.5 py-1 rounded-full bg-[#FEE2E2] text-[#DC2626] font-bold text-[10px]">High Depletion</span>
+              </td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-[#047857] text-white rounded-lg text-xs font-bold hover:bg-[#036549]">
+                  Trigger Reorder PO
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center text-sm">🧅</span>
+                <div>
+                  <span class="block text-[#172B24] font-bold">Red Onion (Grade-A Nashik)</span>
+                  <span class="text-[10px] text-[#64748B]">Batch: #BCH-78390 • Ambient Dry Hub</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono text-[#64748B]">Dry Warehouse Hub A</td>
+              <td class="py-4 px-4 font-mono-numbers font-black text-[#172B24]">586.0 MT</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">61.2 MT / day</td>
+              <td class="py-4 px-4 font-mono-numbers font-bold text-[#10B981]">9.6 Days</td>
+              <td class="py-4 px-4">
+                <span class="px-2.5 py-1 rounded-full bg-[#FEF3C7] text-[#B45309] font-bold text-[10px]">Medium Buffer</span>
+              </td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-white border border-[#E2E8E5] text-[#172B24] rounded-lg text-xs font-bold hover:bg-[#F1F5F3]">
+                  View Batches
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-sm">🥔</span>
+                <div>
+                  <span class="block text-[#172B24] font-bold">Potato (Grade-A Chipsona)</span>
+                  <span class="text-[10px] text-[#64748B]">Batch: #BCH-77942 • Controlled Atmosphere</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono text-[#64748B]">Chamber 4 (8°C - 10°C)</td>
+              <td class="py-4 px-4 font-mono-numbers font-black text-[#172B24]">1,024.0 MT</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">84.0 MT / day</td>
+              <td class="py-4 px-4 font-mono-numbers font-bold text-[#10B981]">12.2 Days</td>
+              <td class="py-4 px-4">
+                <span class="px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Healthy Stock</span>
+              </td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-white border border-[#E2E8E5] text-[#172B24] rounded-lg text-xs font-bold hover:bg-[#F1F5F3]">
+                  View Batches
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

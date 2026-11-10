@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshSupply B2B — Design System & Platform Showcase for Client Approval</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #07140D;
+      color: #FFFFFF;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .device-glow {
+      box-shadow: 0 30px 80px -20px rgba(0, 227, 150, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 227, 150, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-[#00E396] selection:text-black">
+
+  <!-- Sticky Top Header -->
+  <header class="sticky top-0 z-50 bg-[#07140D]/90 backdrop-blur-xl border-b border-[#143D28] px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#00E396] text-[#05180F] font-black text-lg flex items-center justify-center shadow-lg shadow-[#00E396]/20">
+          FS
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-lg font-black tracking-tight text-white">FreshSupply™</h1>
+            <span class="px-2 py-0.5 rounded-full bg-[#00E396]/15 border border-[#00E396]/30 text-[#00E396] text-[10px] font-bold uppercase tracking-wider">Client Presentation Deck</span>
+          </div>
+          <p class="text-xs text-[#8FA89B]">Cross-Platform Design System: Web, Android & iOS Mobile Ecosystem</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#0E2F1E] border border-[#174D32] text-xs text-[#00E396] font-semibold">
+          <span class="w-2 h-2 rounded-full bg-[#00E396] animate-pulse"></span>
+          Ready for Client Signoff
+        </span>
+        <button onclick="window.print()" class="px-4 py-2 bg-[#00E396] text-[#05180F] font-black text-xs rounded-xl shadow-lg shadow-[#00E396]/20 hover:bg-[#00c984] transition-all">
+          Export / Print PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-6 py-12">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E396]/10 border border-[#00E396]/20 text-[#00E396] text-xs font-bold">
+        <span>★ Zomato Hyperpure & Enterprise SaaS Aesthetic</span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
+        Premium Wholesale Grocery Design Architecture
+      </h2>
+      <p class="text-sm md:text-base text-[#8FA89B] leading-relaxed">
+        High-definition macro photography, dark emerald contrast, enterprise customer-specific wholesale pricing, multi-tier volume slabs, and responsive layouts crafted for Web, Android, and iOS.
+      </p>
+
+      <!-- Jump Navigation Pills -->
+      <div class="flex flex-wrap justify-center gap-2 pt-4">
+        <a href="#section-web" class="px-4 py-2 rounded-xl bg-[#0D2B1C] hover:bg-[#143F29] border border-[#1A5034] text-xs font-bold text-white transition-all flex items-center gap-1.5">
+          <span>💻 Web Platform (4 Screens)</span>
+        </a>
+        <a href="#section-android" class="px-4 py-2 rounded-xl bg-[#0D2B1C] hover:bg-[#143F29] border border-[#1A5034] text-xs font-bold text-white transition-all flex items-center gap-1.5">
+          <span>🤖 Android App (2 Screens)</span>
+        </a>
+        <a href="#section-ios" class="px-4 py-2 rounded-xl bg-[#0D2B1C] hover:bg-[#143F29] border border-[#1A5034] text-xs font-bold text-white transition-all flex items-center gap-1.5">
+          <span>🍎 iOS App (2 Screens)</span>
+        </a>
+        <a href="#section-tokens" class="px-4 py-2 rounded-xl bg-[#0D2B1C] hover:bg-[#143F29] border border-[#1A5034] text-xs font-bold text-white transition-all flex items-center gap-1.5">
+          <span>🎨 Design Tokens & Spec</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- SECTION 1: WEB PLATFORM DESIGNS                                -->
+  <!-- ============================================================== -->
+  <section id="section-web" class="max-w-7xl mx-auto px-6 py-12 border-t border-[#143D28]">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <span class="text-xs font-bold text-[#00E396] uppercase tracking-wider">Platform 01</span>
+        <h3 class="text-2xl md:text-3xl font-black text-white mt-1">Desktop Web Applications</h3>
+        <p class="text-xs text-[#8FA89B] mt-1">Wholesale Buyer Storefront, Supply Chain Console, Quality Defect Inspection & Vendor Registration</p>
+      </div>
+      <span class="text-xs font-mono text-[#8FA89B]">1440 × 900 Desktop Optimized</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Web Screen 1: Wholesale Storefront -->
+      <div class="bg-[#091B12] rounded-3xl p-5 border border-[#18462F] space-y-4 device-glow card-hover transition-all">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#EF4444]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#F59E0B]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#10B981]"></span>
+            <span class="ml-2 font-bold text-white">Wholesale Produce & Staples Storefront</span>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-[#00E396]/15 text-[#00E396] font-bold text-[10px]">Buyer Portal</span>
+        </div>
+        
+        <div class="rounded-2xl overflow-hidden border border-[#18462F] bg-black aspect-[16/10]">
+          <img src="web-storefront-catalog.jpg" alt="Wholesale Storefront" class="w-full h-full object-cover"/>
+        </div>
+
+        <div class="space-y-1.5 text-xs text-[#8FA89B]">
+          <div class="font-bold text-white text-sm">Wholesale Groceries for Your Business</div>
+          <p>Dark emerald left navigation sidebar, top produce banner, category chips, 4-column produce card grid with Quintal / Kg pricing, live stock indicators, and "+ Add Bulk" buttons.</p>
+        </div>
+      </div>
+
+      <!-- Web Screen 2: Supply Chain Console Dashboard -->
+      <div class="bg-[#091B12] rounded-3xl p-5 border border-[#18462F] space-y-4 device-glow card-hover transition-all">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#EF4444]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#F59E0B]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#10B981]"></span>
+            <span class="ml-2 font-bold text-white">Supply Chain Console Admin Dashboard</span>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-[#3B82F6]/15 text-[#60A5FA] font-bold text-[10px]">Operations</span>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-[#18462F] bg-black aspect-[16/10]">
+          <img src="web-admin-supplychain-dashboard.jpg" alt="Admin Dashboard" class="w-full h-full object-cover"/>
+        </div>
+
+        <div class="space-y-1.5 text-xs text-[#8FA89B]">
+          <div class="font-bold text-white text-sm">Live Supply Chain Operations & Logistics Throughput</div>
+          <p>KPI metrics cards (Total Inventory 3,842.5 MT, Orders Today 128, Throughput 298.4 MT), Inbound vs Outbound volume chart, live Wholesale Pricing Tiers widget, and Order Fulfillment Queue.</p>
+        </div>
+      </div>
+
+      <!-- Web Screen 3: Claims & Returns Review -->
+      <div class="bg-[#091B12] rounded-3xl p-5 border border-[#18462F] space-y-4 device-glow card-hover transition-all">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#EF4444]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#F59E0B]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#10B981]"></span>
+            <span class="ml-2 font-bold text-white">Claims & Quality Inspection Review</span>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-[#F59E0B]/15 text-[#FBBF24] font-bold text-[10px]">QC & Claims</span>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-[#18462F] bg-black aspect-[16/10]">
+          <img src="web-claims-quality-inspection.jpg" alt="Claims Review" class="w-full h-full object-cover"/>
+        </div>
+
+        <div class="space-y-1.5 text-xs text-[#8FA89B]">
+          <div class="font-bold text-white text-sm">AI Defect Analysis & Dispute Resolution</div>
+          <p>Side-by-side customer condition photos vs dispatch QC records, automated defect grading (Major D3 - 28.4% spoiled tomatoes), AI confidence score (96%), and resolution action buttons (Approve Refund, Replacement Truck, Reject).</p>
+        </div>
+      </div>
+
+      <!-- Web Screen 4: Vendor Registration -->
+      <div class="bg-[#091B12] rounded-3xl p-5 border border-[#18462F] space-y-4 device-glow card-hover transition-all">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#EF4444]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#F59E0B]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#10B981]"></span>
+            <span class="ml-2 font-bold text-white">Wholesale Vendor Registration Wizard</span>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-[#10B981]/15 text-[#34D399] font-bold text-[10px]">Onboarding</span>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-[#18462F] bg-black aspect-[16/10]">
+          <img src="web-vendor-registration.jpg" alt="Vendor Registration" class="w-full h-full object-cover"/>
+        </div>
+
+        <div class="space-y-1.5 text-xs text-[#8FA89B]">
+          <div class="font-bold text-white text-sm">3-Step Partner Verification & Cold Chain Storage Setup</div>
+          <p>Clean onboarding flow for farm aggregators and mills with business profile validation, GSTIN/PAN tax documentation, and refrigerated warehouse distribution setup.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- SECTION 2: ANDROID APP DESIGNS                                 -->
+  <!-- ============================================================== -->
+  <section id="section-android" class="max-w-7xl mx-auto px-6 py-12 border-t border-[#143D28]">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <span class="text-xs font-bold text-[#00E396] uppercase tracking-wider">Platform 02</span>
+        <h3 class="text-2xl md:text-3xl font-black text-white mt-1">Android Mobile Application</h3>
+        <p class="text-xs text-[#8FA89B] mt-1">Material Design 3 Architecture, Jetpack Compose, Android Navigation</p>
+      </div>
+      <span class="text-xs font-mono text-[#8FA89B]">Google Pixel 9 Pro (412 × 915)</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      
+      <!-- Android Screen 1: Product Detail -->
+      <div class="bg-[#091B12] rounded-3xl p-6 border border-[#18462F] space-y-4 device-glow">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <span class="font-bold text-white">Screen 1: Product Detail & Tiered Pricing</span>
+          <span class="px-2 py-0.5 rounded bg-[#00E396]/15 text-[#00E396] font-bold text-[10px]">Reference Design</span>
+        </div>
+
+        <div class="flex justify-center py-2">
+          <div class="w-[360px] rounded-[36px] overflow-hidden border-4 border-[#1E293B] shadow-2xl bg-[#07130D]">
+            <img src="android-mobile-product-pricing.jpg" alt="Android Product Detail" class="w-full h-auto object-contain"/>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#8FA89B] space-y-1">
+          <div class="font-bold text-white">Wholesale Tiered Discount Engine & Stepper</div>
+          <p>Android top bar with cart badge (12), macro photography, 4-pill specs grid, Bags (50kg) vs Crates (20kg) selector, tiered pricing table (1-9 Bags @ ₹1,600, 10-49 Bags 3% Off @ ₹1,550, ≥50 Bags 6% Off @ ₹1,500), and bulk stepper CTA.</p>
+        </div>
+      </div>
+
+      <!-- Android Screen 2: Catalog & Storefront -->
+      <div class="bg-[#091B12] rounded-3xl p-6 border border-[#18462F] space-y-4 device-glow">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <span class="font-bold text-white">Screen 2: Wholesale Catalog & Bottom Navigation</span>
+          <span class="px-2 py-0.5 rounded bg-[#00E396]/15 text-[#00E396] font-bold text-[10px]">Material 3</span>
+        </div>
+
+        <div class="flex justify-center py-2">
+          <div class="w-[360px] rounded-[36px] overflow-hidden border-4 border-[#1E293B] shadow-2xl bg-[#07130D]">
+            <img src="android-mobile-catalog-home.png" alt="Android Catalog" class="w-full h-auto object-contain"/>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#8FA89B] space-y-1">
+          <div class="font-bold text-white">Category Chips & Produce Card Grid</div>
+          <p>Android search bar with live warehouse inventory, delivery address pill (Bengaluru - 560076), category chips, produce cards with Quintal / Kg pricing, and Material Design 3 bottom navigation bar.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- SECTION 3: IOS APP DESIGNS                                     -->
+  <!-- ============================================================== -->
+  <section id="section-ios" class="max-w-7xl mx-auto px-6 py-12 border-t border-[#143D28]">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <span class="text-xs font-bold text-[#00E396] uppercase tracking-wider">Platform 03</span>
+        <h3 class="text-2xl md:text-3xl font-black text-white mt-1">iOS Mobile Application</h3>
+        <p class="text-xs text-[#8FA89B] mt-1">Apple Human Interface Guidelines, SwiftUI, Dynamic Island, SF Symbols</p>
+      </div>
+      <span class="text-xs font-mono text-[#8FA89B]">Apple iPhone 16 Pro (393 × 852)</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      
+      <!-- iOS Screen 1: Product Detail -->
+      <div class="bg-[#091B12] rounded-3xl p-6 border border-[#18462F] space-y-4 device-glow">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <span class="font-bold text-white">Screen 1: iOS Product Detail & Dynamic Island</span>
+          <span class="px-2 py-0.5 rounded bg-[#00E396]/15 text-[#00E396] font-bold text-[10px]">iOS Native</span>
+        </div>
+
+        <div class="flex justify-center py-2">
+          <div class="w-[350px] rounded-[48px] overflow-hidden border-4 border-[#2C2C2E] shadow-2xl bg-black">
+            <img src="ios-mobile-product-detail.png" alt="iOS Product Detail" class="w-full h-auto object-contain"/>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#8FA89B] space-y-1">
+          <div class="font-bold text-white">Dynamic Island, SF Pro Typography & Segmented Control</div>
+          <p>Interactive Dynamic Island pill with live inventory status, iOS native segmented control for packaging, frosted glass action bar, and logged-in B2B credit balance verification pill.</p>
+        </div>
+      </div>
+
+      <!-- iOS Screen 2: Catalog & Storefront -->
+      <div class="bg-[#091B12] rounded-3xl p-6 border border-[#18462F] space-y-4 device-glow">
+        <div class="flex items-center justify-between text-xs border-b border-[#18462F] pb-3">
+          <span class="font-bold text-white">Screen 2: iOS Wholesale Catalog & SF Tab Bar</span>
+          <span class="px-2 py-0.5 rounded bg-[#00E396]/15 text-[#00E396] font-bold text-[10px]">SwiftUI HIG</span>
+        </div>
+
+        <div class="flex justify-center py-2">
+          <div class="w-[350px] rounded-[48px] overflow-hidden border-4 border-[#2C2C2E] shadow-2xl bg-black">
+            <img src="ios-mobile-catalog-home.png" alt="iOS Catalog" class="w-full h-auto object-contain"/>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#8FA89B] space-y-1">
+          <div class="font-bold text-white">iOS Large Title & Frosted Glass Navigation</div>
+          <p>Native iOS 26pt bold title, rounded search bar, category pill carousels, 2-column produce cards with quintal pricing, and SF Symbols native Tab Bar (Catalog, Bulk Plan, Orders, Account).</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- SECTION 4: DESIGN TOKENS & SYSTEM SPECIFICATION                -->
+  <!-- ============================================================== -->
+  <section id="section-tokens" class="max-w-7xl mx-auto px-6 py-12 border-t border-[#143D28]">
+    <div class="mb-8">
+      <span class="text-xs font-bold text-[#00E396] uppercase tracking-wider">Specifications</span>
+      <h3 class="text-2xl md:text-3xl font-black text-white mt-1">Cross-Platform Design System Tokens</h3>
+      <p class="text-xs text-[#8FA89B] mt-1">Unified visual foundation ensuring brand consistency across Web, Android, and iOS.</p>
+    </div>
+
+    <!-- Color Swatches Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-8">
+      <div class="p-3 bg-[#061910] rounded-2xl border border-[#143D28] space-y-2">
+        <div class="w-full h-12 rounded-xl bg-[#047857]"></div>
+        <div>
+          <div class="text-[11px] font-bold text-white">Primary Emerald</div>
+          <div class="text-[10px] font-mono text-[#8FA89B]">#047857</div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-[#061910] rounded-2xl border border-[#143D28] space-y-2">
+        <div class="w-full h-12 rounded-xl bg-[#00E396]"></div>
+        <div>
+          <div class="text-[11px] font-bold text-white">Zomato Neon Green</div>
+          <div class="text-[10px] font-mono text-[#8FA89B]">#00E396</div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-[#061910] rounded-2xl border border-[#143D28] space-y-2">
+        <div class="w-full h-12 rounded-xl bg-[#07130D]"></div>
+        <div>
+          <div class="text-[11px] font-bold text-white">Dark Macro Canvas</div>
+          <div class="text-[10px] font-mono text-[#8FA89B]">#07130D</div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-[#061910] rounded-2xl border border-[#143D28] space-y-2">
+        <div class="w-full h-12 rounded-xl bg-[#0E3524]"></div>
+        <div>
+          <div class="text-[11px] font-bold text-white">Sidebar Deep Green</div>
+          <div class="text-[10px] font-mono text-[#8FA89B]">#0E3524</div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-[#061910] rounded-2xl border border-[#143D28] space-y-2">
+        <div class="w-full h-12 rounded-xl bg-[#F59E0B]"></div>
+        <div>
+          <div class="text-[11px] font-bold text-white">Quality Gold</div>
+          <div class="text-[10px] font-mono text-[#8FA89B]">#F59E0B</div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-[#061910] rounded-2xl border border-[#143D28] space-y-2">
+        <div class="w-full h-12 rounded-xl bg-[#F7F9F8] border border-white/20"></div>
+        <div>
+          <div class="text-[11px] font-bold text-white">Enterprise Light Canvas</div>
+          <div class="text-[10px] font-mono text-[#8FA89B]">#F7F9F8</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Checklist for Approval -->
+    <div class="bg-[#091B12] rounded-3xl p-6 border border-[#18462F] space-y-4">
+      <h4 class="text-sm font-black text-white uppercase tracking-wider flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#00E396]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Key Architectural Features Validated for Client Approval
+      </h4>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-[#CBD5E1]">
+        <div class="p-3 bg-[#06170E] rounded-xl border border-[#143D28] space-y-1">
+          <strong class="text-white">1. Dual Pricing Display</strong>
+          <p>Instant clarity for buyers with large "Price per Quintal" and smaller "Price / Kg" badges for seamless bulk evaluation.</p>
+        </div>
+        <div class="p-3 bg-[#06170E] rounded-xl border border-[#143D28] space-y-1">
+          <strong class="text-white">2. Customer-Specific Pricing</strong>
+          <p>Prices automatically adapt based on logged-in commercial buyer contract terms (Standard, Premium, Net 30, Net 45).</p>
+        </div>
+        <div class="p-3 bg-[#06170E] rounded-xl border border-[#143D28] space-y-1">
+          <strong class="text-white">3. Cold-Chain & QC Confidence</strong>
+          <p>Prominent FSSAI, APEDA, and GAP badges alongside temperature tracking (2°C–4°C Reefer) reassure enterprise buyers.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#143D28] py-8 text-center text-xs text-[#8FA89B]">
+    FreshSupply™ B2B Wholesale Supply Chain Management System • Client Design Approval Deck • 2026
+  </footer>
+
+</body>
+</html>
+

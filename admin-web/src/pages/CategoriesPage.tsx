@@ -2,9 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { Layers, Plus, Edit2, CheckCircle, XCircle, X } from 'lucide-react';
 import { api } from '../api/client';
 
+const groceryCategoriesSeed = [
+  { id: 1, name: 'Fruits & Vegetables', slug: 'fruits-vegetables', description: 'Farm fresh graded produce: tomatoes, onions, potatoes, greens & fruits', product_count: 8, sort_order: 1, is_active: true, image_url: 'https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=120' },
+  { id: 2, name: 'Rice & Grains', slug: 'rice-grains', description: 'Wholesale basmati, sona masoori, raw rice, wheat flour, rava & millets', product_count: 8, sort_order: 2, is_active: true, image_url: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=120' },
+  { id: 3, name: 'Pulses & Dals', slug: 'pulses-dals', description: 'Graded unpolished toor dal, moong, chana, urad, rajma & chickpeas', product_count: 7, sort_order: 3, is_active: true, image_url: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=120' },
+  { id: 4, name: 'Cooking Oils & Ghee', slug: 'cooking-oils-ghee', description: 'Bulk 15L tins: sunflower, mustard, groundnut, rice bran, palm oil & pure ghee', product_count: 6, sort_order: 4, is_active: true, image_url: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=120' },
+  { id: 5, name: 'Spices & Masalas', slug: 'spices-masalas', description: 'Whole spices, turmeric, chilli powder, cumin, pepper & blended garam masalas', product_count: 6, sort_order: 5, is_active: true, image_url: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=120' },
+  { id: 6, name: 'Sugar, Salt & Sweeteners', slug: 'sugar-salt', description: 'Bulk 50kg sacks: M-30 crystal sugar, sulfur-free sugar, jaggery & iodized salt', product_count: 4, sort_order: 6, is_active: true, image_url: 'https://images.unsplash.com/photo-1581441363689-1f3c3c414635?w=120' },
+  { id: 7, name: 'Dairy & Refrigerated', slug: 'dairy-refrigerated', description: 'Cold chain temperature-controlled milk, table butter, malai paneer, cheese & curd', product_count: 5, sort_order: 7, is_active: true, image_url: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=120' },
+  { id: 8, name: 'Packaged Foods & Beverages', slug: 'packaged-foods', description: 'Commercial tea bags, roasted coffee, noodles, pasta, ketchup & fruit juices', product_count: 7, sort_order: 8, is_active: true, image_url: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=120' },
+  { id: 9, name: 'Snacks & Dry Fruits', slug: 'snacks-dry-fruits', description: 'Cashews, California almonds, raisins, roasted peanuts & namkeen snacks', product_count: 6, sort_order: 9, is_active: true, image_url: 'https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?w=120' },
+  { id: 10, name: 'Frozen & Essentials', slug: 'frozen-essentials', description: 'IQF green peas, sweet corn, parathas, sauces, and cleaning essentials', product_count: 6, sort_order: 10, is_active: true, image_url: 'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=120' },
+];
+
 export const CategoriesPage: React.FC = () => {
-  const [categories, setCategories] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<any[]>(groceryCategoriesSeed);
+  const [loading, setLoading] = useState(false);
 
   // Modal State
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,7 +36,9 @@ export const CategoriesPage: React.FC = () => {
     try {
       setLoading(true);
       const res = await api.getCategories(true);
-      if (res.success) setCategories(res.data);
+      if (res.success && res.data && res.data.length > 0) {
+        setCategories(res.data);
+      }
     } catch (err) {
       console.error('Failed to load categories:', err);
     } finally {

@@ -1,8 +1,30 @@
 import { Router, Response } from 'express';
+import jwt from 'jsonwebtoken';
 import { pool } from '../db/pool';
+import { config } from '../config';
 import { requireStaff, AuthenticatedRequest } from '../middleware/auth';
+import { PricingService } from '../services/pricingService';
 
 const router = Router();
+
+// Helper to extract effective customer ID securely from token or authorized staff query
+function getEffectiveCustomerId(req: any): number | null {
+  const authHeader = req.headers.authorization;
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    try {
+      const decoded: any = jwt.verify(authHeader.split(' ')[1], config.jwtSecret);
+      // Verified customer tokens are ALWAYS bound to their own customer ID
+      if (decoded?.type === 'customer' && decoded?.customerId) {
+        return decoded.customerId;
+      }
+      // Only authorized staff may preview pricing on behalf of a specific customer
+      if (decoded?.type === 'staff' && req.query.customerId && !isNaN(Number(req.query.customerId))) {
+        return Number(req.query.customerId);
+      }
+    } catch (e) {}
+  }
+  return null;
+}
 
 // List Products
 router.get('/', async (req, res, next) => {
@@ -57,6 +79,31 @@ router.get('/', async (req, res, next) => {
 
     const result = await pool.query(query, values);
 
+    // Dynamic customer-specific pricing resolution
+    const effectiveCustomerId = getEffectiveCustomerId(req);
+    let resolvedRows = result.rows;
+
+    if (effectiveCustomerId) {
+      resolvedRows = await Promise.all(
+        result.rows.map(async (row: any) => {
+          try {
+            const pricing = await PricingService.resolveProductPrice(effectiveCustomerId, row.id);
+            return {
+              ...row,
+              standard_price: row.price,
+              price: pricing.customerPrice,
+              discount_percentage: pricing.discountPercentage,
+              pricing_source: pricing.source,
+              min_order_qty: pricing.minOrderQty,
+              is_custom_pricing: pricing.isCustomized,
+            };
+          } catch (e) {
+            return row;
+          }
+        })
+      );
+    }
+
     // Also get count
     const countQuery = `
       SELECT COUNT(*) as total
@@ -68,11 +115,12 @@ router.get('/', async (req, res, next) => {
 
     res.json({
       success: true,
-      data: result.rows,
+      data: resolvedRows,
       meta: {
         total: parseInt(countResult.rows[0].total, 10),
         limit: parseInt(limit as string, 10),
         offset: parseInt(offset as string, 10),
+        effectiveCustomerId: effectiveCustomerId || undefined,
       },
     });
   } catch (err) {
@@ -134,7 +182,22 @@ router.get('/:id', async (req, res, next) => {
       return;
     }
 
-    res.json({ success: true, data: result.rows[0] });
+    const prod = result.rows[0];
+    const effectiveCustomerId = getEffectiveCustomerId(req);
+
+    if (effectiveCustomerId) {
+      try {
+        const pricing = await PricingService.resolveProductPrice(effectiveCustomerId, prod.id);
+        prod.standard_price = prod.price;
+        prod.price = pricing.customerPrice;
+        prod.discount_percentage = pricing.discountPercentage;
+        prod.pricing_source = pricing.source;
+        prod.min_order_qty = pricing.minOrderQty;
+        prod.is_custom_pricing = pricing.isCustomized;
+      } catch (e) {}
+    }
+
+    res.json({ success: true, data: prod });
   } catch (err) {
     next(err);
   }

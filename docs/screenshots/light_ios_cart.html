@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply iOS App — Bulk Plan & Cart (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 393px;
+      height: 852px;
+    }
+    .font-mono-numbers {
+      font-family: -apple-system, monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col relative w-[393px] h-[852px] bg-[#F7F9F8] border border-[#E2E8E5]">
+  
+  <!-- Dynamic Island & iOS Status Bar -->
+  <div class="h-11 px-7 pt-3 flex justify-between items-center text-xs font-semibold text-[#172B24] z-30 select-none bg-white">
+    <span class="text-[13px] font-bold tracking-tight">9:41</span>
+    <div class="w-28 h-6 bg-black rounded-full flex items-center justify-between px-2.5 mx-auto border border-black/10 shadow-sm">
+      <div class="w-2.5 h-2.5 rounded-full bg-[#111111]"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-[#10B981]/80 animate-pulse"></div>
+    </div>
+    <div class="flex items-center gap-1.5 text-[11px]">
+      <span class="font-bold">5G</span>
+      <div class="w-5 h-2.5 border border-[#172B24] rounded-sm p-0.5 flex items-center">
+        <div class="w-3 h-1.5 bg-[#172B24] rounded-2xs"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- iOS Large Title Header -->
+  <div class="px-5 pt-3 pb-2 bg-white border-b border-[#E2E8E5]">
+    <div class="flex items-center justify-between">
+      <h1 class="text-2xl font-black text-[#172B24] tracking-tight">Bulk Plan</h1>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[10px] font-bold">
+        Net-30 Credit Active
+      </span>
+    </div>
+    <span class="text-xs text-[#64748B]">Order #ORD-Draft • 1.5 MT Selected</span>
+  </div>
+
+  <!-- Scrollable Cart Area -->
+  <div class="flex-1 overflow-y-auto p-4 space-y-3 pb-28">
+    
+    <!-- Commercial Credit Facility Banner -->
+    <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs flex items-center justify-between">
+      <div>
+        <span class="text-[10px] uppercase font-bold text-[#64748B] block">B2B Revolving Balance</span>
+        <span class="font-black text-[#047857] text-sm font-mono-numbers">₹3,75,000 Remaining</span>
+      </div>
+      <span class="text-[10px] text-[#10B981] font-bold bg-[#ECFDF5] px-2 py-1 rounded-lg border border-[#A7F3D0]">
+        100% Approved
+      </span>
+    </div>
+
+    <!-- Produce Item 1: Onions -->
+    <div class="bg-white rounded-2xl p-3.5 border border-[#E2E8E5] shadow-xs space-y-2.5">
+      <div class="flex items-center gap-3">
+        <img src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=150&q=80" class="w-14 h-14 rounded-xl object-cover border border-[#E2E8E5]"/>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-[#172B24]">Premium Red Onions</span>
+            <span class="text-xs font-black text-[#047857] font-mono-numbers">₹15,000</span>
+          </div>
+          <span class="text-[10px] text-[#64748B] block mt-0.5">50 kg Gunny Bags (Grade-A)</span>
+          <span class="text-[10px] text-[#10B981] font-bold">Tier: ₹30.00/kg (6% Off)</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-xs">
+        <span class="text-[11px] text-[#64748B] font-mono">10 Bags (500 kg)</span>
+        <div class="flex items-center gap-2 bg-[#F1F5F3] px-2 py-1 rounded-xl">
+          <button class="w-5 h-5 flex items-center justify-center font-bold text-[#172B24]">-</button>
+          <span class="font-bold font-mono text-xs px-2 text-[#047857]">10</span>
+          <button class="w-5 h-5 flex items-center justify-center font-bold text-[#172B24]">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produce Item 2: Tomatoes -->
+    <div class="bg-white rounded-2xl p-3.5 border border-[#E2E8E5] shadow-xs space-y-2.5">
+      <div class="flex items-center gap-3">
+        <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=150&q=80" class="w-14 h-14 rounded-xl object-cover border border-[#E2E8E5]"/>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-[#172B24]">Desi Red Tomatoes</span>
+            <span class="text-xs font-black text-[#047857] font-mono-numbers">₹35,000</span>
+          </div>
+          <span class="text-[10px] text-[#64748B] block mt-0.5">25 kg Uniform Crates</span>
+          <span class="text-[10px] text-[#10B981] font-bold">Negotiated: ₹35.00/kg</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-xs">
+        <span class="text-[11px] text-[#64748B] font-mono">40 Crates (1,000 kg)</span>
+        <div class="flex items-center gap-2 bg-[#F1F5F3] px-2 py-1 rounded-xl">
+          <button class="w-5 h-5 flex items-center justify-center font-bold text-[#172B24]">-</button>
+          <span class="font-bold font-mono text-xs px-2 text-[#047857]">40</span>
+          <button class="w-5 h-5 flex items-center justify-center font-bold text-[#172B24]">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Summary Card -->
+    <div class="bg-white rounded-2xl p-4 border border-[#E2E8E5] space-y-2 text-xs shadow-xs">
+      <div class="flex justify-between text-[#64748B]">
+        <span>Gross Total (1.5 MT)</span>
+        <span class="font-mono">₹53,200</span>
+      </div>
+      <div class="flex justify-between text-[#10B981] font-bold">
+        <span>Tier-1 Volume Rebate</span>
+        <span class="font-mono">-₹3,200</span>
+      </div>
+      <div class="flex justify-between text-[#64748B]">
+        <span>Cold Reefer Freight</span>
+        <span class="font-mono text-[#047857] font-bold">FREE</span>
+      </div>
+      <div class="flex justify-between font-black text-[#172B24] border-t border-[#E2E8E5] pt-2 text-sm">
+        <span>Invoice Amount</span>
+        <span class="font-mono-numbers text-[#047857]">₹50,000</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Frosted Glass Checkout Action -->
+  <div class="absolute bottom-16 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-[#E2E8E5] z-20">
+    <button class="w-full py-3.5 bg-[#047857] text-white font-bold text-sm rounded-2xl shadow-sm hover:bg-[#036549] flex items-center justify-center gap-2">
+      <span>Place Bulk Dispatch (Net-30)</span>
+      <span class="text-xs opacity-80">₹50,000</span>
+    </button>
+  </div>
+
+  <!-- iOS Tab Bar (SF Symbols Light) -->
+  <div class="h-16 px-6 bg-white/95 backdrop-blur-xl border-t border-[#E2E8E5] flex items-center justify-between absolute bottom-0 left-0 right-0 z-30 select-none">
+    <div class="flex flex-col items-center gap-0.5 text-[#64748B] cursor-pointer">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+      <span class="text-[10px] font-medium">Catalog</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5 text-[#047857] cursor-pointer">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <span class="text-[10px] font-bold">Bulk Plan</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5 text-[#64748B] cursor-pointer">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      <span class="text-[10px] font-medium">Orders</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5 text-[#64748B] cursor-pointer">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      <span class="text-[10px] font-medium">Account</span>
+    </div>
+  </div>
+
+</body>
+</html>

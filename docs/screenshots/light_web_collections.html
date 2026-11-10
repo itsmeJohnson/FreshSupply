@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply Collections & Accounts Receivable Aging (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 1440px;
+      height: 900px;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col w-[1440px] h-[900px] bg-[#F7F9F8]">
+
+  <!-- Header -->
+  <header class="h-16 px-6 bg-white border-b border-[#E2E8E5] flex items-center justify-between z-20 flex-shrink-0">
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white flex items-center justify-center font-black shadow-xs">FS</div>
+        <div>
+          <span class="text-base font-black tracking-tight text-[#172B24]">FreshSupply</span>
+          <span class="block text-[9px] text-[#047857] font-bold uppercase tracking-wider -mt-1">Collections & AR Aging Buckets</span>
+        </div>
+      </div>
+      <div class="w-80 h-10 px-3.5 bg-[#F1F5F3] rounded-xl flex items-center gap-2 border border-[#E2E8E5] text-xs text-[#64748B]">
+        <svg class="w-4 h-4 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span class="text-[#64748B]">Search invoice ID, buyer company, overdue bucket...</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="px-3 py-1.5 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-xs text-[#047857] font-bold">
+        Total Receivables: ₹48.5 Lakhs • 91.2% Within Credit Terms
+      </span>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-full bg-[#047857] text-white font-bold text-xs flex items-center justify-center">JD</div>
+        <div class="text-xs">
+          <div class="font-bold text-[#172B24]">Johnson David</div>
+          <div class="text-[10px] text-[#64748B]">Finance Controller</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white border-r border-[#E2E8E5] p-4 flex flex-col justify-between flex-shrink-0">
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-[#94A3B8] uppercase tracking-wider px-3 mb-2">Finance & Risk</div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          Dashboard
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Customer Pricing
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          Credit & Receivables
+        </div>
+        <div class="px-3 py-2 rounded-xl font-bold text-xs bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            Collections & Aging
+          </span>
+          <span class="px-1.5 py-0.5 rounded-full bg-[#10B981] text-white text-[10px] font-bold">5 Slabs</span>
+        </div>
+      </div>
+      <div class="p-3 bg-[#ECFDF5] rounded-2xl border border-[#A7F3D0] text-xs">
+        <div class="font-bold text-[#047857]">DSO (Days Sales Out)</div>
+        <div class="text-[11px] text-[#065F46] mt-0.5">Average: 22.4 Days (Industry: 35)</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 space-y-6 overflow-y-auto">
+      
+      <!-- Top Title -->
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black text-[#172B24] tracking-tight">Accounts Receivable & Aging Buckets</h1>
+          <p class="text-xs text-[#64748B] mt-1">Multi-tier credit risk governance, automated payment reminders & collections monitoring</p>
+        </div>
+        <button class="px-4 py-2 bg-[#047857] text-white rounded-xl text-xs font-bold shadow-xs hover:bg-[#036549]">
+          Trigger Automated Reminders
+        </button>
+      </div>
+
+      <!-- 5 Aging Buckets Cards -->
+      <div class="grid grid-cols-5 gap-3">
+        <div class="p-3.5 bg-white rounded-2xl border border-[#A7F3D0] shadow-xs">
+          <div class="text-[10px] font-bold text-[#047857] uppercase tracking-wider">Current (0–15d)</div>
+          <div class="text-xl font-black text-[#047857] font-mono-numbers mt-1">₹34.2L</div>
+          <span class="text-[10px] text-[#64748B]">70.5% • Within terms</span>
+        </div>
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <div class="text-[10px] font-bold text-[#172B24] uppercase tracking-wider">16–30 Days</div>
+          <div class="text-xl font-black text-[#172B24] font-mono-numbers mt-1">₹9.8L</div>
+          <span class="text-[10px] text-[#64748B]">20.2% • Standard</span>
+        </div>
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <div class="text-[10px] font-bold text-[#D97706] uppercase tracking-wider">31–60 Days</div>
+          <div class="text-xl font-black text-[#D97706] font-mono-numbers mt-1">₹3.1L</div>
+          <span class="text-[10px] text-[#64748B]">6.4% • Soft Reminder</span>
+        </div>
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <div class="text-[10px] font-bold text-[#EA580C] uppercase tracking-wider">61–90 Days</div>
+          <div class="text-xl font-black text-[#EA580C] font-mono-numbers mt-1">₹1.1L</div>
+          <span class="text-[10px] text-[#64748B]">2.3% • Orders Paused</span>
+        </div>
+        <div class="p-3.5 bg-white rounded-2xl border border-[#FEE2E2] shadow-xs">
+          <div class="text-[10px] font-bold text-[#DC2626] uppercase tracking-wider">&gt; 90 Days Overdue</div>
+          <div class="text-xl font-black text-[#DC2626] font-mono-numbers mt-1">₹0.3L</div>
+          <span class="text-[10px] text-[#DC2626] font-bold">0.6% • Legal Action</span>
+        </div>
+      </div>
+
+      <!-- Ledger Table -->
+      <div class="bg-white rounded-2xl border border-[#E2E8E5] shadow-xs overflow-hidden">
+        <div class="p-4 border-b border-[#E2E8E5] flex items-center justify-between">
+          <div>
+            <h3 class="font-black text-base text-[#172B24]">Customer Credit Balances & Aging Status</h3>
+            <p class="text-xs text-[#64748B]">Monitors commercial credit utilization, unpaid invoices, and payment risk levels</p>
+          </div>
+          <span class="text-xs text-[#64748B]">Total 120 Accounts Evaluated</span>
+        </div>
+
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#F1F5F3] border-b border-[#E2E8E5] text-[#64748B] font-bold uppercase tracking-wider text-[10px]">
+            <tr>
+              <th class="py-3.5 px-4">Customer Account</th>
+              <th class="py-3.5 px-4">Agreed Terms</th>
+              <th class="py-3.5 px-4">Total Outstanding</th>
+              <th class="py-3.5 px-4">Credit Limit</th>
+              <th class="py-3.5 px-4">Aging Bracket</th>
+              <th class="py-3.5 px-4">Risk Status</th>
+              <th class="py-3.5 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#E2E8E5] text-[#172B24]">
+            
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="block text-[#172B24] font-black">GreenMart Retail Private Ltd.</span>
+                <span class="text-[10px] text-[#64748B]">#CUST-1042 • 2 Invoices Pending</span>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold">Net-30 Days</td>
+              <td class="py-4 px-4 font-mono-numbers font-black text-[#172B24]">₹3,75,000</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">₹5,00,000 (75% Cap)</td>
+              <td class="py-4 px-4">
+                <span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">
+                  0–15 Days (Current)
+                </span>
+              </td>
+              <td class="py-4 px-4">
+                <span class="text-[10px] text-[#10B981] font-bold">● Low Risk • Good Payer</span>
+              </td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-white border border-[#E2E8E5] text-[#172B24] rounded-lg text-xs font-bold hover:bg-[#F1F5F3]">
+                  View Invoices
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="block text-[#172B24] font-black">FreshHub Cloud Kitchens</span>
+                <span class="text-[10px] text-[#64748B]">#CUST-1088 • 1 Invoice Pending</span>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold">Net-15 Days</td>
+              <td class="py-4 px-4 font-mono-numbers font-black text-[#172B24]">₹1,12,000</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">₹2,50,000 (45% Cap)</td>
+              <td class="py-4 px-4">
+                <span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">
+                  0–15 Days (Current)
+                </span>
+              </td>
+              <td class="py-4 px-4">
+                <span class="text-[10px] text-[#10B981] font-bold">● Low Risk</span>
+              </td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-white border border-[#E2E8E5] text-[#172B24] rounded-lg text-xs font-bold hover:bg-[#F1F5F3]">
+                  View Invoices
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="block text-[#172B24] font-black">SpiceBazaar Supermarket</span>
+                <span class="text-[10px] text-[#64748B]">#CUST-1095 • Invoice #INV-6619</span>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold">Net-15 Days</td>
+              <td class="py-4 px-4 font-mono-numbers font-black text-[#D97706]">₹48,200</td>
+              <td class="py-4 px-4 font-mono-numbers text-[#64748B]">₹1,00,000 (48% Cap)</td>
+              <td class="py-4 px-4">
+                <span class="px-2 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] font-bold text-[10px]">
+                  31–60 Days Overdue
+                </span>
+              </td>
+              <td class="py-4 px-4">
+                <span class="text-[10px] text-[#D97706] font-bold">▲ Medium • Soft Reminder Sent</span>
+              </td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-[#D97706] text-white rounded-lg text-xs font-bold">
+                  Send Notice
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

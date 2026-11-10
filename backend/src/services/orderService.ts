@@ -1,4 +1,6 @@
 import { pool } from '../db/pool';
+import { PricingService } from './pricingService';
+import { CreditService } from './creditService';
 
 export interface CreateOrderItemInput {
   productId: number;
@@ -12,6 +14,7 @@ export interface CreateOrderParams {
   deliverySlot: string;
   poReference?: string;
   notes?: string;
+  paymentMethod?: 'credit' | 'cash' | 'advance';
   items: CreateOrderItemInput[];
 }
 
@@ -113,7 +116,9 @@ export class OrderService {
           );
         }
 
-        const unitPrice = parseFloat(product.price);
+        // Resolve authoritative customer-specific price according to priority hierarchy
+        const resolved = await PricingService.resolveProductPrice(params.customerId, product.id);
+        const unitPrice = resolved.customerPrice;
         const lineTotal = Math.round(unitPrice * item.quantity * 100) / 100;
         subtotal += lineTotal;
 
@@ -133,6 +138,14 @@ export class OrderService {
       const taxAmount = Math.round(subtotal * 0.05 * 100) / 100; // 5% GST
       const deliveryCharge = subtotal >= 5000 ? 0 : 250; // Free delivery above 5000
       const totalAmount = subtotal + taxAmount + deliveryCharge;
+
+      // 4b. Validate Customer Credit if Purchasing on Credit
+      if (params.paymentMethod === 'credit') {
+        const creditValidation = await CreditService.validateCreditOrder(params.customerId, totalAmount);
+        if (!creditValidation.allowed) {
+          throw new Error(creditValidation.reason || 'Insufficient credit balance for this wholesale order');
+        }
+      }
 
       // 5. Generate unique order number (e.g., FS-YYYYMMDD-XXXX)
       const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
@@ -223,6 +236,11 @@ export class OrderService {
       // 9. Clear customer's server cart
       await client.query(`DELETE FROM cart_items WHERE customer_id = $1`, [params.customerId]);
 
+      // 10. Reserve Credit Exposure if using B2B Credit Terms
+      if (params.paymentMethod === 'credit') {
+        await CreditService.reserveCredit(params.customerId, createdOrder.id, totalAmount, client);
+      }
+
       await client.query('COMMIT');
       return createdOrder;
     } catch (err) {
@@ -295,6 +313,9 @@ export class OrderService {
             updatedBy.name || 'System / Staff',
           ]);
         }
+
+        // Release reserved credit exposure if order had reserved credit
+        await CreditService.releaseCredit(order.customer_id, orderId, client);
       }
 
       // Update Order

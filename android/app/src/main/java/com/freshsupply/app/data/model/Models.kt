@@ -54,6 +54,9 @@ data class Product(
     @SerializedName("pack_size") val packSize: String,
     @SerializedName("min_order_qty") val minOrderQty: Int,
     val price: Double,
+    @SerializedName("standard_price") val standardPrice: Double? = null,
+    @SerializedName("discount_percentage") val discountPercentage: Double? = null,
+    @SerializedName("is_custom_pricing") val isCustomPricing: Boolean? = null,
     @SerializedName("stock_quantity") val stockQuantity: Int,
     @SerializedName("is_active") val isActive: Boolean = true,
     @SerializedName("is_featured") val isFeatured: Boolean = false

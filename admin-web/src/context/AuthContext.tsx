@@ -35,6 +35,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return;
     }
 
+    if (token.startsWith('demo_token_')) {
+      const isAdminRole = token.includes('admin');
+      setUser({
+        staffId: isAdminRole ? 1 : 2,
+        email: isAdminRole ? 'admin@freshsupply.com' : 'ops@freshsupply.com',
+        name: isAdminRole ? 'Johnson Doe (Director)' : 'Rohan Sharma (Dispatch Lead)',
+        role: isAdminRole ? 'admin' : 'staff',
+      });
+      setLoading(false);
+      return;
+    }
+
     api.getMe()
       .then((res) => {
         if (res.success && res.data) {

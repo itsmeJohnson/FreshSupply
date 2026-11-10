@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply Android App — Product Detail (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 412px;
+      height: 915px;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col relative w-[412px] h-[915px] bg-[#F7F9F8] border border-[#E2E8E5]">
+  
+  <!-- Android Status Bar (Light Mode) -->
+  <div class="h-8 px-6 pt-2 flex justify-between items-center text-xs font-semibold text-[#172B24] z-20 select-none bg-white">
+    <span class="font-bold">10:24</span>
+    <div class="flex items-center gap-2 text-[#172B24]">
+      <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.32c3.55 0 6.78 1.41 9.17 3.71L12 19.3 2.83 11.03C5.22 8.73 8.45 7.32 12 7.32z"/></svg>
+      <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M2 22h20V2L2 22z"/></svg>
+      <div class="flex items-center text-[10px] gap-0.5 font-bold">
+        <span>98%</span>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17 4h-3V2h-4v2H7v18h10V4z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Android Top App Bar (Light Theme) -->
+  <div class="px-4 py-2.5 flex items-center justify-between border-b border-[#E2E8E5] bg-white shadow-sm">
+    <div class="flex items-center gap-3">
+      <button class="w-8 h-8 rounded-full flex items-center justify-center text-[#172B24] hover:bg-[#F1F5F3]">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <div class="w-5 h-5 rounded-md bg-[#047857] text-white flex items-center justify-center font-bold text-xs">
+            FS
+          </div>
+          <span class="text-sm font-black tracking-tight text-[#172B24]">FreshSupply</span>
+        </div>
+        <div class="text-[9px] text-[#64748B] font-medium -mt-0.5">Wholesale Produce for Business</div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button class="w-8 h-8 rounded-full flex items-center justify-center text-[#64748B] hover:bg-[#F1F5F3]">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </button>
+      <button class="relative w-8 h-8 rounded-full flex items-center justify-center text-[#172B24] bg-[#ECFDF5] border border-[#A7F3D0]">
+        <svg class="w-4 h-4 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <span class="absolute -top-1 -right-1 bg-[#047857] text-white text-[9px] font-black rounded-full px-1 min-w-[14px] text-center">12</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scrollable Content (Light Mode) -->
+  <div class="flex-1 overflow-y-auto px-4 py-3 space-y-3.5 pb-24 bg-[#F7F9F8]">
+    
+    <!-- Hero Product Image with Light Frame -->
+    <div class="h-44 rounded-2xl overflow-hidden bg-white relative border border-[#E2E8E5] shadow-sm">
+      <img src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=600&auto=format&fit=crop&q=80" alt="Red Onions" class="w-full h-full object-cover"/>
+      
+      <div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur border border-[#E2E8E5] text-[10px] font-bold text-[#047857] flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+        Nashik Direct Harvest
+      </div>
+
+      <!-- Dots -->
+      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/60 px-2 py-1 rounded-full">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+      </div>
+    </div>
+
+    <!-- Category Breadcrumb & Title -->
+    <div>
+      <div class="flex items-center justify-between">
+        <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[10px] font-bold">
+          Vegetables &gt; Onion
+        </span>
+        <div class="w-10 h-10 rounded-full border border-[#D97706] bg-[#FEF3C7] flex flex-col items-center justify-center text-[#B45309]">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="text-[7px] font-black uppercase tracking-tight">Grade A</span>
+        </div>
+      </div>
+
+      <h1 class="text-xl font-black text-[#172B24] mt-1 leading-snug">Premium Grade-A Red Onions</h1>
+      <p class="text-xs text-[#64748B] mt-0.5">Farm Fresh • Uniform Size • Moisture &le; 12%</p>
+    </div>
+
+    <!-- Specs 4-Pill Grid (Clean White Cards) -->
+    <div class="grid grid-cols-4 gap-1.5 text-center">
+      <div class="p-2 bg-white rounded-xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B] font-medium">Origin</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">Maharashtra</div>
+      </div>
+      <div class="p-2 bg-white rounded-xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B] font-medium">Avg. Size</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">55 – 75 mm</div>
+      </div>
+      <div class="p-2 bg-white rounded-xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B] font-medium">Moisture</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">&le; 12%</div>
+      </div>
+      <div class="p-2 bg-white rounded-xl border border-[#E2E8E5] shadow-xs">
+        <div class="text-[9px] text-[#64748B] font-medium">Shelf Life</div>
+        <div class="text-[11px] font-bold text-[#172B24] mt-0.5">30 – 45 d</div>
+      </div>
+    </div>
+
+    <!-- Quality Assurance & Product Highlights -->
+    <div class="grid grid-cols-2 gap-2 text-xs">
+      <div class="p-2.5 bg-white rounded-xl border border-[#E2E8E5] space-y-1.5 shadow-xs">
+        <div class="text-[10px] font-bold text-[#047857] flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Quality Standards
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <span class="px-1.5 py-0.5 rounded bg-[#F1F5F3] text-[9px] font-bold text-[#172B24] border border-[#E2E8E5]">fssai</span>
+          <span class="px-1.5 py-0.5 rounded bg-[#F1F5F3] text-[9px] font-bold text-[#172B24] border border-[#E2E8E5]">APEDA</span>
+          <span class="px-1.5 py-0.5 rounded bg-[#F1F5F3] text-[9px] font-bold text-[#172B24] border border-[#E2E8E5]">GAP</span>
+        </div>
+      </div>
+
+      <div class="p-2.5 bg-white rounded-xl border border-[#E2E8E5] space-y-1 text-[10px] text-[#172B24] shadow-xs">
+        <div class="font-bold text-[#047857]">Product Highlights</div>
+        <div>✓ Strict Grade-A sorting</div>
+        <div>✓ Firm & long-lasting</div>
+        <div>✓ Bulk kitchen grade</div>
+      </div>
+    </div>
+
+    <!-- Packaging Type Selector (Light Mode) -->
+    <div>
+      <div class="text-[10px] font-bold text-[#64748B] uppercase tracking-wider mb-1.5">Packaging Type</div>
+      <div class="grid grid-cols-2 gap-2">
+        <button class="py-2.5 px-3 rounded-xl bg-[#047857] text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm">
+          <span>Bags (50 kg)</span>
+        </button>
+        <button class="py-2.5 px-3 rounded-xl bg-white border border-[#E2E8E5] text-[#172B24] font-bold text-xs flex items-center justify-center gap-2">
+          <span>Crates (20 kg)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Wholesale Pricing Tier Table (Clean Light Surface) -->
+    <div class="p-3.5 bg-white rounded-xl border border-[#E2E8E5] text-xs space-y-2 shadow-xs">
+      <div class="text-[10px] font-extrabold text-[#047857] flex items-center gap-1.5 uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        Wholesale Tiered Rates (Bags – 50 kg)
+      </div>
+
+      <table class="w-full text-[11px] font-mono-numbers">
+        <thead>
+          <tr class="text-[#64748B] border-b border-[#E2E8E5]">
+            <th class="text-left pb-1 font-semibold">Order Volume</th>
+            <th class="text-left pb-1 font-semibold">Price / Bag</th>
+            <th class="text-right pb-1 font-semibold">Rate / Kg</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-[#F1F5F3]">
+          <tr>
+            <td class="py-1.5 text-[#172B24] font-medium">1 – 9 Bags</td>
+            <td class="py-1.5 text-[#172B24] font-bold">₹1,600</td>
+            <td class="py-1.5 text-right text-[#64748B]">₹32.00 / kg</td>
+          </tr>
+          <tr>
+            <td class="py-1.5 text-[#172B24] font-medium">10 – 49 Bags <span class="text-[#047857] text-[9px] font-bold bg-[#ECFDF5] px-1 py-0.5 rounded">3% Off</span></td>
+            <td class="py-1.5 text-[#172B24] font-bold">₹1,550</td>
+            <td class="py-1.5 text-right text-[#64748B]">₹31.00 / kg</td>
+          </tr>
+          <tr class="bg-[#ECFDF5] text-[#047857] font-bold rounded-lg">
+            <td class="py-1.5 px-1.5">&ge; 50 Bags <span class="text-[9px] font-black bg-[#047857] text-white px-1 py-0.5 rounded">6% Off</span></td>
+            <td class="py-1.5 font-black text-sm">₹1,500</td>
+            <td class="py-1.5 pr-1.5 text-right font-black text-xs">₹30.00 / kg</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Live Stock & Dispatch Line -->
+    <div class="flex justify-between items-center text-[10px] text-[#64748B] px-1 bg-white p-2.5 rounded-xl border border-[#E2E8E5]">
+      <span class="text-[#047857] font-bold flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+        In Stock (1,250 Bags available)
+      </span>
+      <span class="font-semibold text-[#172B24]">🚚 Dispatch Tomorrow (05:00 AM)</span>
+    </div>
+
+  </div>
+
+  <!-- Bottom Fixed Stepper & Add to Cart (Light Mode) -->
+  <div class="absolute bottom-4 left-0 right-0 p-3.5 bg-white/95 backdrop-blur-md border-t border-[#E2E8E5] flex items-center gap-3 shadow-lg">
+    <div class="flex items-center bg-[#F1F5F3] border border-[#E2E8E5] rounded-xl p-1">
+      <button class="w-9 h-9 rounded-lg bg-white border border-[#E2E8E5] text-[#172B24] font-bold flex items-center justify-center text-base hover:bg-[#F7F9F8] shadow-xs">-</button>
+      <span class="w-10 text-center font-bold font-mono-numbers text-[#172B24] text-base">10</span>
+      <button class="w-9 h-9 rounded-lg bg-white border border-[#E2E8E5] text-[#172B24] font-bold flex items-center justify-center text-base hover:bg-[#F7F9F8] shadow-xs">+</button>
+    </div>
+
+    <button class="flex-1 py-3.5 bg-[#047857] text-white font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 shadow-md shadow-[#047857]/20 active:scale-98 transition-transform hover:bg-[#036549]">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+      Add to Wholesale Cart
+    </button>
+  </div>
+
+  <!-- Android Home Gesture Bar -->
+  <div class="h-4 flex items-center justify-center bg-white absolute bottom-0 left-0 right-0">
+    <div class="w-24 h-1 bg-[#CBD5E1] rounded-full"></div>
+  </div>
+
+</body>
+</html>
+

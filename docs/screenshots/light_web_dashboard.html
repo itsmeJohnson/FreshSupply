@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply Supply Chain Console Dashboard (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 1440px;
+      height: 900px;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col w-[1440px] h-[900px] bg-[#F7F9F8]">
+
+  <!-- Top Header (Light Theme) -->
+  <header class="h-16 px-6 bg-white border-b border-[#E2E8E5] flex items-center justify-between z-20">
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white flex items-center justify-center font-black shadow-xs">
+          FS
+        </div>
+        <div>
+          <span class="text-base font-black tracking-tight text-[#172B24]">FreshSupply</span>
+          <span class="block text-[9px] text-[#047857] font-bold uppercase tracking-wider -mt-1">Supply Chain Console</span>
+        </div>
+      </div>
+
+      <div class="w-80 h-10 px-3.5 bg-[#F1F5F3] rounded-xl flex items-center gap-2 border border-[#E2E8E5] text-xs text-[#64748B]">
+        <svg class="w-4 h-4 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span class="text-[#64748B]">Search orders, inventory, partners...</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 text-xs font-semibold text-[#172B24] bg-[#F1F5F3] px-3 py-1.5 rounded-xl border border-[#E2E8E5]">
+        <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+        Oct 04, 2026 • Live Updates
+      </div>
+
+      <!-- User JD -->
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-full bg-[#047857] text-white font-bold text-xs flex items-center justify-center">
+          JD
+        </div>
+        <div class="text-xs">
+          <div class="font-bold text-[#172B24]">Johnson David</div>
+          <div class="text-[10px] text-[#64748B]">Hub Lead</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1 overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white border-r border-[#E2E8E5] p-4 flex flex-col justify-between flex-shrink-0">
+      <div class="space-y-1">
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-xs bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          Dashboard Overview
+        </button>
+        <button class="w-full flex items-center justify-between px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          <span class="flex items-center gap-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            Wholesale Orders
+          </span>
+          <span class="px-1.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] text-[10px] font-bold">128</span>
+        </button>
+        <button class="w-full flex items-center justify-between px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          <span class="flex items-center gap-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            Inventory Management
+          </span>
+          <span class="px-1.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] text-[10px] font-bold">6 Low</span>
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Wholesale Pricing
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          Logistics & Reefer Fleet
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          Claims & Quality Review
+        </button>
+      </div>
+
+      <div class="p-3 bg-[#ECFDF5] border border-[#A7F3D0] rounded-xl text-xs space-y-1">
+        <div class="font-bold text-[#047857] flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+          Central Hub (BLR)
+        </div>
+        <div class="text-[10px] text-[#065F46]">Cold storage: 2.8°C • Optimal</div>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <main class="flex-1 overflow-y-auto p-6 space-y-5">
+      
+      <!-- Greeting & Top KPI Cards (Exact matching Image 2 in Light Theme) -->
+      <div>
+        <h2 class="text-xl font-black text-[#172B24]">Good Morning, Johnson</h2>
+        <p class="text-xs text-[#64748B]">Here is your fresh grocery supply chain overview for today</p>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4">
+        
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] space-y-1 shadow-xs">
+          <div class="text-xs text-[#64748B] flex items-center justify-between">
+            <span>Total Inventory</span>
+            <span class="text-[#047857] font-bold text-[11px]">↑ +6.8%</span>
+          </div>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers">3,842.5 <span class="text-xs font-normal text-[#64748B]">MT</span></div>
+          <div class="text-[10px] text-[#64748B]">vs yesterday</div>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] space-y-1 shadow-xs">
+          <div class="text-xs text-[#64748B] flex items-center justify-between">
+            <span>Orders Today</span>
+            <span class="text-[#047857] font-bold text-[11px]">↑ +18%</span>
+          </div>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers">128</div>
+          <div class="text-[10px] text-[#64748B]">Active wholesale dispatches</div>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] space-y-1 shadow-xs">
+          <div class="text-xs text-[#64748B] flex items-center justify-between">
+            <span>Dispatch Throughput</span>
+            <span class="text-[#047857] font-bold text-[11px]">↑ +12.6%</span>
+          </div>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers">298.4 <span class="text-xs font-normal text-[#64748B]">MT</span></div>
+          <div class="text-[10px] text-[#64748B]">Reefer fleet running</div>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] space-y-1 shadow-xs">
+          <div class="text-xs text-[#64748B] flex items-center justify-between">
+            <span>Low Stock Items</span>
+            <span class="text-[#10B981] font-bold text-[11px]">↓ -40%</span>
+          </div>
+          <div class="text-2xl font-black text-[#D97706] font-mono-numbers">6 <span class="text-xs font-normal text-[#64748B]">SKUs</span></div>
+          <div class="text-[10px] text-[#64748B]">Reorder triggered</div>
+        </div>
+
+      </div>
+
+      <!-- 2-Column Grid: Logistics Throughput Chart + Wholesale Pricing Tiers -->
+      <div class="grid grid-cols-3 gap-4">
+        
+        <!-- Throughput Chart (2 cols) -->
+        <div class="col-span-2 p-5 bg-white rounded-2xl border border-[#E2E8E5] space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-sm text-[#172B24]">Logistics Throughput</h3>
+              <p class="text-[11px] text-[#64748B]">Daily inbound, outbound and fulfilled volume (MT)</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#10B981]"></span> Inbound (428.6 MT)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#047857]"></span> Outbound (298.6 MT)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#3B82F6]"></span> Fulfilled (276.1 MT)</span>
+            </div>
+          </div>
+
+          <!-- SVG Smooth Curve Chart -->
+          <div class="h-44 w-full pt-4">
+            <svg class="w-full h-full" viewBox="0 0 600 150" fill="none">
+              <!-- Grid lines -->
+              <line x1="0" y1="30" x2="600" y2="30" stroke="#F1F5F3" stroke-width="1"/>
+              <line x1="0" y1="75" x2="600" y2="75" stroke="#F1F5F3" stroke-width="1"/>
+              <line x1="0" y1="120" x2="600" y2="120" stroke="#F1F5F3" stroke-width="1"/>
+              
+              <!-- Inbound Curve (Green) -->
+              <path d="M0,110 C80,100 150,70 230,85 C310,100 380,50 460,55 C520,60 560,35 600,40" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+              
+              <!-- Outbound Curve (Emerald) -->
+              <path d="M0,130 C80,120 150,90 230,105 C310,120 380,75 460,80 C520,85 560,55 600,65" stroke="#047857" stroke-width="3" stroke-linecap="round"/>
+              
+              <!-- Points -->
+              <circle cx="600" cy="40" r="4" fill="#10B981"/>
+              <circle cx="600" cy="65" r="4" fill="#047857"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Wholesale Pricing Tiers Widget (1 col) -->
+        <div class="p-5 bg-white rounded-2xl border border-[#E2E8E5] space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-sm text-[#172B24]">Wholesale Pricing Tiers</h3>
+            <span class="text-[10px] text-[#047857] font-bold">Edit Mode</span>
+          </div>
+
+          <div class="p-2 bg-[#F1F5F3] rounded-xl text-xs flex items-center justify-between font-bold">
+            <span>Onion (Premium Grade-A)</span>
+            <span class="text-[#047857]">Active</span>
+          </div>
+
+          <table class="w-full text-xs font-mono-numbers">
+            <thead>
+              <tr class="text-[#64748B] border-b border-[#E2E8E5]">
+                <th class="text-left pb-1 font-semibold">Min Qty</th>
+                <th class="text-left pb-1 font-semibold">Max Qty</th>
+                <th class="text-right pb-1 font-semibold">Price/Kg</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#F1F5F3]">
+              <tr>
+                <td class="py-1.5 text-[#172B24]">1 kg</td>
+                <td class="py-1.5 text-[#64748B]">49 kg</td>
+                <td class="py-1.5 text-right font-bold text-[#172B24]">₹22.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 text-[#172B24]">50 kg</td>
+                <td class="py-1.5 text-[#64748B]">249 kg</td>
+                <td class="py-1.5 text-right font-bold text-[#172B24]">₹21.00 <span class="text-[9px] text-[#047857] font-bold">-4.5%</span></td>
+              </tr>
+              <tr class="bg-[#ECFDF5] text-[#047857] font-bold rounded">
+                <td class="py-1.5 px-1 font-black">&ge; 1,000 kg</td>
+                <td class="py-1.5 text-[#047857] font-normal">Bulk Hub</td>
+                <td class="py-1.5 pr-1 text-right font-black">₹18.75 <span class="text-[9px] bg-[#047857] text-white px-1 py-0.2 rounded">-14.8%</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="w-full py-2 bg-[#047857] text-white font-bold text-xs rounded-xl shadow-xs hover:bg-[#036549]">
+            Save Pricing Changes
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Inventory Depletion Risk Table -->
+      <div class="p-5 bg-white rounded-2xl border border-[#E2E8E5] space-y-3 shadow-xs">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-sm text-[#172B24]">Inventory Status – Fresh Produce</h3>
+            <p class="text-[11px] text-[#64748B]">Real-time stock levels, daily consumption trend and depletion risk</p>
+          </div>
+          <span class="text-xs text-[#047857] font-bold">All Categories ▾</span>
+        </div>
+
+        <table class="w-full text-xs">
+          <thead>
+            <tr class="text-[#64748B] border-b border-[#E2E8E5] font-semibold text-left">
+              <th class="pb-2">Product</th>
+              <th class="pb-2">Current Stock</th>
+              <th class="pb-2">Daily Consumption</th>
+              <th class="pb-2">Stock Cover</th>
+              <th class="pb-2">Depletion Risk</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#F1F5F3]">
+            <tr>
+              <td class="py-2.5 font-bold text-[#172B24]">🍅 Tomato</td>
+              <td class="py-2.5 font-mono-numbers">162.5 MT</td>
+              <td class="py-2.5 font-mono-numbers text-[#64748B]">28.4 MT/day</td>
+              <td class="py-2.5 font-bold text-[#DC2626]">5.7 days</td>
+              <td class="py-2.5"><span class="px-2 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-bold text-[10px]">High</span></td>
+            </tr>
+            <tr>
+              <td class="py-2.5 font-bold text-[#172B24]">🧅 Onion</td>
+              <td class="py-2.5 font-mono-numbers">586.0 MT</td>
+              <td class="py-2.5 font-mono-numbers text-[#64748B]">61.2 MT/day</td>
+              <td class="py-2.5 font-bold text-[#D97706]">9.6 days</td>
+              <td class="py-2.5"><span class="px-2 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] font-bold text-[10px]">Medium</span></td>
+            </tr>
+            <tr>
+              <td class="py-2.5 font-bold text-[#172B24]">🥔 Potato</td>
+              <td class="py-2.5 font-mono-numbers">1,024.0 MT</td>
+              <td class="py-2.5 font-mono-numbers text-[#64748B]">84.0 MT/day</td>
+              <td class="py-2.5 font-bold text-[#047857]">12.2 days</td>
+              <td class="py-2.5"><span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Low</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
+

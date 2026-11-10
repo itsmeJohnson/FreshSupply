@@ -230,7 +230,7 @@ export const CustomersPage: React.FC = () => {
                           padding: '10px 14px',
                           borderRadius: '8px',
                           border: '1px solid var(--color-border)',
-                          backgroundColor: '#FFFFFF',
+                          backgroundColor: '#081710',
                           fontSize: '0.85rem',
                         }}
                       >

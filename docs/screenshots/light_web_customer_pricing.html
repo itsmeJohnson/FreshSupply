@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply Customer-Specific Wholesale Pricing (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 1440px;
+      height: 900px;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col w-[1440px] h-[900px] bg-[#F7F9F8]">
+
+  <!-- Header -->
+  <header class="h-16 px-6 bg-white border-b border-[#E2E8E5] flex items-center justify-between z-20 flex-shrink-0">
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white flex items-center justify-center font-black shadow-xs">FS</div>
+        <div>
+          <span class="text-base font-black tracking-tight text-[#172B24]">FreshSupply</span>
+          <span class="block text-[9px] text-[#047857] font-bold uppercase tracking-wider -mt-1">Customer Pricing Engine & Contracts</span>
+        </div>
+      </div>
+      <div class="w-80 h-10 px-3.5 bg-[#F1F5F3] rounded-xl flex items-center gap-2 border border-[#E2E8E5] text-xs text-[#64748B]">
+        <svg class="w-4 h-4 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span class="text-[#64748B]">Search customer account, negotiated price list...</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="px-3 py-1.5 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-xs text-[#047857] font-bold">
+        120 Active B2B Customers • 42 Custom Contracts Active
+      </span>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-full bg-[#047857] text-white font-bold text-xs flex items-center justify-center">JD</div>
+        <div class="text-xs">
+          <div class="font-bold text-[#172B24]">Johnson David</div>
+          <div class="text-[10px] text-[#64748B]">Commercial Director</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white border-r border-[#E2E8E5] p-4 flex flex-col justify-between flex-shrink-0">
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-[#94A3B8] uppercase tracking-wider px-3 mb-2">Commerce</div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          Dashboard
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          Orders
+        </div>
+        <div class="px-3 py-2 rounded-xl font-bold text-xs bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Customer Pricing
+          </span>
+          <span class="px-1.5 py-0.5 rounded-full bg-[#047857] text-white text-[10px] font-bold">42 Custom</span>
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Contracts & Agreements
+        </div>
+        <div class="px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:bg-[#F1F5F3] flex items-center gap-3">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          Credit & Receivables
+        </div>
+      </div>
+      <div class="p-3 bg-[#F1F5F3] rounded-2xl border border-[#E2E8E5] text-xs">
+        <div class="font-bold text-[#172B24]">Contract Governance</div>
+        <div class="text-[11px] text-[#64748B] mt-0.5">Auto margin protection lock &gt;14.5%</div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 p-6 space-y-6 overflow-y-auto">
+      
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-black text-[#172B24] tracking-tight">Customer-Specific Wholesale Pricing</h1>
+          <p class="text-xs text-[#64748B] mt-1">Configure negotiated rates, volume discounts and credit limits per B2B customer</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="px-3.5 py-2 bg-white border border-[#E2E8E5] rounded-xl text-xs font-bold text-[#172B24] shadow-xs">
+            Bulk Price Matrix Upload (XLSX)
+          </button>
+          <button class="px-4 py-2 bg-[#047857] text-white rounded-xl text-xs font-bold shadow-xs hover:bg-[#036549]">
+            + Add Customer Price Rule
+          </button>
+        </div>
+      </div>
+
+      <!-- Overview Cards -->
+      <div class="grid grid-cols-4 gap-4">
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Total Active Buyers</span>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers mt-1">120</div>
+          <span class="text-[11px] text-[#64748B]">Across Retail, HORECA, Cloud Kitchens</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Custom Contract Pricing</span>
+          <div class="text-2xl font-black text-[#047857] font-mono-numbers mt-1">42 (35%)</div>
+          <span class="text-[11px] text-[#10B981] font-semibold">Tier-1 Volume Commitments</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Standard Tier Pricing</span>
+          <div class="text-2xl font-black text-[#172B24] font-mono-numbers mt-1">78 (65%)</div>
+          <span class="text-[11px] text-[#64748B]">Automated volume slabs</span>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs">
+          <span class="text-[10px] font-bold text-[#64748B] uppercase">Average Gross Margin</span>
+          <div class="text-2xl font-black text-[#10B981] font-mono-numbers mt-1">18.4%</div>
+          <span class="text-[11px] text-[#047857] font-semibold">Protected against spot spikes</span>
+        </div>
+      </div>
+
+      <!-- Customer Pricing Table -->
+      <div class="bg-white rounded-2xl border border-[#E2E8E5] shadow-xs overflow-hidden">
+        <div class="p-4 border-b border-[#E2E8E5] flex items-center justify-between">
+          <div>
+            <h3 class="font-black text-base text-[#172B24]">Active Customer Price Agreements</h3>
+            <p class="text-xs text-[#64748B]">Each buyer logs into the identical storefront but sees their custom negotiated rate</p>
+          </div>
+          <span class="text-xs text-[#64748B]">Showing 120 customer accounts</span>
+        </div>
+
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#F1F5F3] border-b border-[#E2E8E5] text-[#64748B] font-bold uppercase tracking-wider text-[10px]">
+            <tr>
+              <th class="py-3.5 px-4">Customer Account</th>
+              <th class="py-3.5 px-4">Segment & Tier</th>
+              <th class="py-3.5 px-4">Key Produce Rate</th>
+              <th class="py-3.5 px-4">Credit Period</th>
+              <th class="py-3.5 px-4">Assigned Credit Limit</th>
+              <th class="py-3.5 px-4">Contract Expiry</th>
+              <th class="py-3.5 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#E2E8E5] text-[#172B24]">
+            
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="block text-[#172B24] font-black">GreenMart Retail Private Ltd.</span>
+                <span class="text-[10px] text-[#64748B]">GSTIN: 29AABCU9603R1ZM • ID: #CUST-1042</span>
+              </td>
+              <td class="py-4 px-4">
+                <span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[10px] font-bold">
+                  Tier-1 Enterprise Supermarket
+                </span>
+              </td>
+              <td class="py-4 px-4">
+                <div class="font-bold text-[#047857]">Tomato: ₹35.00/kg (Default: ₹38.00)</div>
+                <div class="text-[10px] text-[#64748B]">Onion: ₹19.50/kg • Potato: ₹23.00/kg</div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold">Net-30 Days</td>
+              <td class="py-4 px-4 font-mono-numbers">
+                <span class="font-bold text-[#172B24]">₹5,00,000</span>
+                <span class="text-[10px] text-[#64748B] block">Utilized: ₹3,75,000 (75%)</span>
+              </td>
+              <td class="py-4 px-4 font-mono text-[#64748B]">Dec 31, 2026</td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-[#047857] text-white rounded-lg text-xs font-bold hover:bg-[#036549]">
+                  Edit Rates
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="block text-[#172B24] font-black">FreshHub Cloud Kitchen Network</span>
+                <span class="text-[10px] text-[#64748B]">GSTIN: 29AAACH7412K1Z9 • ID: #CUST-1088</span>
+              </td>
+              <td class="py-4 px-4">
+                <span class="px-2 py-0.5 rounded-full bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] text-[10px] font-bold">
+                  HORECA Cloud Kitchen Chain
+                </span>
+              </td>
+              <td class="py-4 px-4">
+                <div class="font-bold text-[#047857]">Tomato: ₹36.50/kg • 4% Bulk Off</div>
+                <div class="text-[10px] text-[#64748B]">Basmati: ₹74.00/kg</div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold">Net-15 Days</td>
+              <td class="py-4 px-4 font-mono-numbers">
+                <span class="font-bold text-[#172B24]">₹2,50,000</span>
+                <span class="text-[10px] text-[#64748B] block">Utilized: ₹1,12,000 (45%)</span>
+              </td>
+              <td class="py-4 px-4 font-mono text-[#64748B]">Nov 30, 2026</td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-white border border-[#E2E8E5] text-[#172B24] rounded-lg text-xs font-bold hover:bg-[#F1F5F3]">
+                  Edit Rates
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-[#F7F9F8]">
+              <td class="py-4 px-4 font-bold">
+                <span class="block text-[#172B24] font-black">QuickNest Express Retail</span>
+                <span class="text-[10px] text-[#64748B]">GSTIN: 29AAEFK4418P1ZX • ID: #CUST-1102</span>
+              </td>
+              <td class="py-4 px-4">
+                <span class="px-2 py-0.5 rounded-full bg-[#F1F5F3] text-[#64748B] text-[10px] font-bold">
+                  Standard Neighborhood Mart
+                </span>
+              </td>
+              <td class="py-4 px-4">
+                <div class="font-bold text-[#172B24]">Standard Wholesale Volume Slabs</div>
+                <div class="text-[10px] text-[#64748B]">Tomato ₹38/kg • Onion ₹22/kg</div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold">Net-7 Days</td>
+              <td class="py-4 px-4 font-mono-numbers">
+                <span class="font-bold text-[#172B24]">₹1,00,000</span>
+                <span class="text-[10px] text-[#64748B] block">Utilized: ₹24,000 (24%)</span>
+              </td>
+              <td class="py-4 px-4 font-mono text-[#64748B]">Oct 15, 2026</td>
+              <td class="py-4 px-4 text-right">
+                <button class="px-3 py-1 bg-white border border-[#E2E8E5] text-[#172B24] rounded-lg text-xs font-bold hover:bg-[#F1F5F3]">
+                  Edit Rates
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

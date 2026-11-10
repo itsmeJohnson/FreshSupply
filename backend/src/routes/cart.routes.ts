@@ -1,6 +1,7 @@
 import { Router, Response } from 'express';
 import { pool } from '../db/pool';
 import { requireCustomer, AuthenticatedRequest } from '../middleware/auth';
+import { PricingService } from '../services/pricingService';
 
 const router = Router();
 
@@ -22,31 +23,38 @@ router.get('/', requireCustomer, async (req: AuthenticatedRequest, res: Response
     `, [customerId]);
 
     let subtotal = 0;
-    const items = result.rows.map((row) => {
-      const unitPrice = parseFloat(row.price);
-      const lineTotal = Math.round(unitPrice * row.quantity * 100) / 100;
-      if (row.is_active) {
-        subtotal += lineTotal;
-      }
-      return {
-        id: row.id,
-        productId: row.product_id,
-        name: row.name,
-        sku: row.sku,
-        unit: row.unit,
-        packSize: row.pack_size,
-        minOrderQty: row.min_order_qty,
-        price: unitPrice,
-        stockQuantity: row.stock_quantity,
-        imageUrl: row.image_url,
-        isActive: row.is_active,
-        categoryName: row.category_name,
-        quantity: row.quantity,
-        lineTotal,
-        hasStock: row.stock_quantity >= row.quantity,
-        meetsMoq: row.quantity >= row.min_order_qty,
-      };
-    });
+    const items = await Promise.all(
+      result.rows.map(async (row) => {
+        let unitPrice = parseFloat(row.price);
+        try {
+          const resolved = await PricingService.resolveProductPrice(customerId, row.product_id);
+          unitPrice = resolved.customerPrice;
+        } catch (e) {}
+
+        const lineTotal = Math.round(unitPrice * row.quantity * 100) / 100;
+        if (row.is_active) {
+          subtotal += lineTotal;
+        }
+        return {
+          id: row.id,
+          productId: row.product_id,
+          name: row.name,
+          sku: row.sku,
+          unit: row.unit,
+          packSize: row.pack_size,
+          minOrderQty: row.min_order_qty,
+          price: unitPrice,
+          stockQuantity: row.stock_quantity,
+          imageUrl: row.image_url,
+          isActive: row.is_active,
+          categoryName: row.category_name,
+          quantity: row.quantity,
+          lineTotal,
+          hasStock: row.stock_quantity >= row.quantity,
+          meetsMoq: row.quantity >= row.min_order_qty,
+        };
+      })
+    );
 
     const taxAmount = Math.round(subtotal * 0.05 * 100) / 100;
     const deliveryCharge = subtotal >= 5000 || subtotal === 0 ? 0 : 250;

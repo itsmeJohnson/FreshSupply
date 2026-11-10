@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FreshSupply Claims & Quality Inspection Review (Light Theme)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #F7F9F8;
+      color: #172B24;
+      overflow: hidden;
+      width: 1440px;
+      height: 900px;
+    }
+    .font-mono-numbers {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="flex flex-col w-[1440px] h-[900px] bg-[#F7F9F8]">
+
+  <!-- Top Header (Light Theme) -->
+  <header class="h-16 px-6 bg-white border-b border-[#E2E8E5] flex items-center justify-between z-20">
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white flex items-center justify-center font-black shadow-xs">
+          FS
+        </div>
+        <div>
+          <span class="text-base font-black tracking-tight text-[#172B24]">FreshSupply</span>
+          <span class="block text-[9px] text-[#047857] font-bold uppercase tracking-wider -mt-1">Quality Inspection & Claims</span>
+        </div>
+      </div>
+
+      <div class="w-80 h-10 px-3.5 bg-[#F1F5F3] rounded-xl flex items-center gap-2 border border-[#E2E8E5] text-xs text-[#64748B]">
+        <svg class="w-4 h-4 text-[#047857]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span class="text-[#64748B]">Search claims, batch numbers, orders...</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="w-9 h-9 rounded-full bg-[#047857] text-white font-bold text-xs flex items-center justify-center">
+        JD
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1 overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white border-r border-[#E2E8E5] p-4 flex flex-col justify-between flex-shrink-0">
+      <div class="space-y-1">
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          Dashboard Overview
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          Wholesale Orders
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          Inventory
+        </button>
+        <button class="w-full flex items-center gap-3 px-3 py-2 rounded-xl font-semibold text-xs text-[#64748B] hover:text-[#172B24] hover:bg-[#F1F5F3]">
+          Logistics
+        </button>
+        <button class="w-full flex items-center justify-between px-3 py-2 rounded-xl font-bold text-xs bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0]">
+          <span>Claims & Returns</span>
+          <span class="px-1.5 py-0.5 rounded-full bg-[#047857] text-white text-[10px] font-bold">42</span>
+        </button>
+      </div>
+
+      <div class="p-3 bg-[#ECFDF5] border border-[#A7F3D0] rounded-xl text-xs space-y-1">
+        <div class="font-bold text-[#047857]">Operations Console</div>
+        <div class="text-[10px] text-[#065F46]">Claims Review • Level 2 Signoff</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-6 space-y-5">
+      
+      <!-- Top Title & KPI Row (Exact from Image 1 in Light Theme) -->
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-black text-[#172B24]">Claims & Returns Review</h2>
+          <p class="text-xs text-[#64748B]">Review quality claims, item returns, and execute settlement actions</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="px-3.5 py-2 bg-white rounded-xl border border-[#E2E8E5] text-xs shadow-xs">
+            <span class="text-[#64748B] block text-[10px]">Open Claims</span>
+            <span class="font-black text-[#172B24] font-mono-numbers text-sm">42 <span class="text-[#047857] text-[10px] font-bold">↑ +12%</span></span>
+          </div>
+          <div class="px-3.5 py-2 bg-white rounded-xl border border-[#E2E8E5] text-xs shadow-xs">
+            <span class="text-[#64748B] block text-[10px]">Resolved (30d)</span>
+            <span class="font-black text-[#172B24] font-mono-numbers text-sm">186 <span class="text-[#047857] text-[10px] font-bold">↑ +96%</span></span>
+          </div>
+          <div class="px-3.5 py-2 bg-white rounded-xl border border-[#E2E8E5] text-xs shadow-xs">
+            <span class="text-[#64748B] block text-[10px]">Avg. Resolution</span>
+            <span class="font-black text-[#172B24] font-mono-numbers text-sm">2.8 d <span class="text-[#10B981] text-[10px] font-bold">↓ -34%</span></span>
+          </div>
+          <div class="px-3.5 py-2 bg-[#FEF3C7] rounded-xl border border-[#F59E0B] text-xs shadow-xs">
+            <span class="text-[#B45309] block text-[10px] font-bold">Open Claim Value</span>
+            <span class="font-black text-[#B45309] font-mono-numbers text-sm">₹6.42 Lakh</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex items-center gap-2 border-b border-[#E2E8E5] pb-2 text-xs">
+        <button class="px-3.5 py-1.5 rounded-full bg-[#047857] text-white font-bold shadow-xs">Pending Review (42)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8E5] text-[#172B24] font-semibold hover:bg-[#F1F5F3]">In Progress (18)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8E5] text-[#172B24] font-semibold hover:bg-[#F1F5F3]">Approved (186)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8E5] text-[#172B24] font-semibold hover:bg-[#F1F5F3]">Rejected (64)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8E5] text-[#172B24] font-semibold hover:bg-[#F1F5F3]">Returns Picked Up (29)</button>
+      </div>
+
+      <!-- Active Claim Header -->
+      <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] flex items-center justify-between shadow-xs">
+        <div class="flex items-center gap-3">
+          <button class="w-8 h-8 rounded-xl bg-[#F1F5F3] flex items-center justify-center font-bold text-[#172B24]">←</button>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-black text-base text-[#172B24]">Claim #CLM-98527</span>
+              <span class="px-2 py-0.5 rounded-md bg-[#FEF3C7] text-[#B45309] font-bold text-[10px] border border-[#F59E0B]">Pending Review</span>
+            </div>
+            <div class="text-xs text-[#64748B] mt-0.5">
+              Retail Partner: <strong class="text-[#172B24]">GreenMart Retail</strong> &nbsp;|&nbsp; Order: <strong>ORD-742893</strong> &nbsp;|&nbsp; Raised: Oct 04, 2026, 10:24 AM
+            </div>
+          </div>
+        </div>
+
+        <div class="text-right">
+          <div class="text-[10px] text-[#64748B]">Claim Value</div>
+          <div class="text-xl font-black text-[#DC2626] font-mono-numbers">₹28,560</div>
+        </div>
+      </div>
+
+      <!-- Side-by-Side Inspection Cards (Light Theme) -->
+      <div class="grid grid-cols-2 gap-5">
+        
+        <!-- Left: Customer Condition & AI Vision Analysis -->
+        <div class="p-5 bg-white rounded-2xl border border-[#E2E8E5] space-y-4 shadow-xs">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-[#172B24] flex items-center gap-1.5">
+              📷 Customer Upload – Received Condition
+            </span>
+            <span class="text-[10px] text-[#64748B]">Photo at delivery (10:18 AM)</span>
+          </div>
+
+          <!-- Photo Container -->
+          <div class="h-48 rounded-xl overflow-hidden bg-[#F1F5F3] relative border border-[#E2E8E5]">
+            <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800&auto=format&fit=crop&q=80" alt="Spoiled Tomatoes" class="w-full h-full object-cover filter contrast-125"/>
+            
+            <!-- AI Defect Badge Overlay -->
+            <div class="absolute top-2.5 right-2.5 p-2 bg-white/95 backdrop-blur rounded-xl border border-[#DC2626] shadow-sm text-xs space-y-0.5 text-right">
+              <div class="text-[9px] font-bold text-[#64748B] uppercase">AI Quality Analysis</div>
+              <div class="text-xs font-black text-[#DC2626]">Defect Grade: Major (D3)</div>
+              <div class="text-[10px] text-[#64748B]">Est. Defect Rate: <strong class="text-[#DC2626]">28.4% (≈142 kg)</strong></div>
+              <div class="text-[9px] text-[#047857] font-bold">AI Confidence: 96%</div>
+            </div>
+          </div>
+
+          <!-- Claim Details Summary -->
+          <div class="p-3 bg-[#F1F5F3] rounded-xl text-xs space-y-1 text-[#172B24]">
+            <div class="flex justify-between"><span class="text-[#64748B]">Claim Type:</span> <strong class="text-[#DC2626]">Quality Issue (Spoilage & Transit Bruising)</strong></div>
+            <div class="flex justify-between"><span class="text-[#64748B]">Requested:</span> <strong>Refund or Replacement Truck</strong></div>
+            <div class="text-[11px] text-[#64748B] mt-1 pt-1 border-t border-[#E2E8E5]">"Received crate with heavy rotting on bottom layers. Approx 30% unusable for restaurant prep."</div>
+          </div>
+        </div>
+
+        <!-- Right: Dispatch & QC Records -->
+        <div class="p-5 bg-white rounded-2xl border border-[#E2E8E5] space-y-4 shadow-xs flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-[#172B24] flex items-center gap-1.5">
+                📦 Dispatch & Quality Control Record
+              </span>
+              <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px] border border-[#A7F3D0]">Grade-A (QC: 95%)</span>
+            </div>
+
+            <!-- Product Specs at Dispatch -->
+            <div class="p-3 bg-[#F1F5F3] rounded-xl text-xs space-y-1.5">
+              <div class="flex justify-between font-bold text-[#172B24]">
+                <span>Tomato (Grade-A Salad)</span>
+                <span>Dispatched: 500 kg @ ₹57.12/kg</span>
+              </div>
+              <div class="flex justify-between text-[11px] text-[#64748B]">
+                <span>Batch: BCH-78421</span>
+                <span>QC Ref: QC-55673</span>
+              </div>
+            </div>
+
+            <!-- Cold Chain Timeline -->
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center gap-2 text-[#047857]">
+                <span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+                <span>QC Passed at Warehouse Hub (Oct 03, 04:36 PM)</span>
+              </div>
+              <div class="flex items-center gap-2 text-[#047857]">
+                <span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+                <span>Dispatched from Central Cold Hub (Oct 03, 05:20 PM)</span>
+              </div>
+              <div class="flex items-center gap-2 text-[#D97706]">
+                <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+                <span>Delivered to Customer (Oct 04, 09:48 AM • Transit Temp: 12°C–14°C)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resolution Actions (Exact from Image 1 in Light Theme) -->
+          <div class="border-t border-[#E2E8E5] pt-4 space-y-2">
+            <div class="text-[10px] font-bold text-[#64748B] uppercase tracking-wider">Resolution Actions</div>
+            <div class="grid grid-cols-3 gap-2">
+              <button class="py-2.5 px-2 bg-[#047857] text-white font-bold text-xs rounded-xl shadow-xs hover:bg-[#036549] text-center leading-tight">
+                ✓ Approve Refund<br/><span class="text-[9px] font-normal text-white/80">Process ₹28,560</span>
+              </button>
+              <button class="py-2.5 px-2 bg-white border border-[#047857] text-[#047857] font-bold text-xs rounded-xl shadow-xs hover:bg-[#ECFDF5] text-center leading-tight">
+                🚚 Replacement<br/><span class="text-[9px] font-normal text-[#64748B]">Deliver fresh batch</span>
+              </button>
+              <button class="py-2.5 px-2 bg-white border border-[#E2E8E5] text-[#DC2626] font-bold text-xs rounded-xl shadow-xs hover:bg-[#FEE2E2] text-center leading-tight">
+                ✕ Reject Claim<br/><span class="text-[9px] font-normal text-[#64748B]">Dispute closed</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
+
