@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FreshSupply™ — Complete B2B Wholesale Ecosystem Design Approval Document (Light Theme)</title>
+  <title>FreshSupply™ — Complete B2B Wholesale Ecosystem Client Approval Dossier</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,528 +11,1055 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: #F7F9F8;
+      background-color: #ECEFEF;
       color: #172B24;
+      margin: 0;
+      padding: 0;
     }
     .font-mono-numbers {
       font-family: 'JetBrains Mono', monospace;
     }
-    .device-shadow {
-      box-shadow: 0 20px 50px -12px rgba(4, 120, 87, 0.12), 0 0 0 1px #E2E8E5;
+    
+    /* Screen Styles */
+    @media screen {
+      .pdf-page {
+        width: 210mm;
+        height: 297mm;
+        margin: 20px auto;
+        padding: 14mm 16mm;
+        background: #F7F9F8;
+        border: 1px solid #D5DDD8;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(4, 120, 87, 0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
     }
-    .card-hover:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 60px -15px rgba(4, 120, 87, 0.18), 0 0 0 1px #A7F3D0;
+
+    /* Print / PDF Styles */
+    @page {
+      size: 210mm 297mm;
+      margin: 0;
     }
     @media print {
-      body {
-        background-color: #FFFFFF;
+      html, body {
+        width: 210mm;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #F7F9F8 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       .no-print {
         display: none !important;
       }
-      .page-break {
-        page-break-after: always;
-        break-after: page;
-      }
-      .device-shadow {
+      .pdf-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 13mm 15mm !important;
+        background: #F7F9F8 !important;
+        border: none !important;
+        border-radius: 0 !important;
         box-shadow: none !important;
-        border: 1px solid #E2E8E5 !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        break-after: page !important;
+        break-inside: avoid !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
       }
     }
   </style>
 </head>
-<body class="min-h-screen antialiased selection:bg-[#047857] selection:text-white">
+<body class="antialiased selection:bg-[#047857] selection:text-white">
 
-  <!-- Sticky Client Header Toolbar -->
-  <header class="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-[#E2E8E5] px-6 py-4 shadow-xs">
+  <!-- Sticky Client Toolbar (Screen only) -->
+  <header class="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-[#E2E8E5] px-6 py-3 shadow-xs">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-[#047857] text-white font-black text-lg flex items-center justify-center shadow-sm">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white font-black text-base flex items-center justify-center shadow-sm">
           FS
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="text-base font-black tracking-tight text-[#172B24]">FreshSupply™ B2B</h1>
-            <span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[#047857] text-[10px] font-bold uppercase tracking-wider">All-Modules Client Approval</span>
+            <h1 class="text-sm font-black tracking-tight text-[#172B24]">FreshSupply™ B2B</h1>
+            <span class="px-2 py-0.5 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[#047857] text-[9px] font-bold uppercase tracking-wider">Client Approval Dossier</span>
           </div>
-          <p class="text-xs text-[#64748B]">Complete Screen Suite: Web Console, Android (Material 3) & iOS (SwiftUI) Ecosystem</p>
+          <p class="text-[11px] text-[#64748B]">20-Page Formatted Deck • 1 Page per Screen • Zero Empty Spaces</p>
         </div>
       </div>
 
       <div class="flex items-center gap-3">
-        <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#ECFDF5] border border-[#A7F3D0] text-xs text-[#047857] font-semibold">
-          <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-          21 Screens Ready for Review
-        </span>
         <button onclick="window.print()" class="px-4 py-2 bg-[#047857] text-white font-extrabold text-xs rounded-xl shadow-sm hover:bg-[#036549] transition-all flex items-center gap-2">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-          Print / Save as PDF
+          Print / Export PDF
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Cover Header -->
-  <section class="max-w-7xl mx-auto px-6 pt-10 pb-8 border-b border-[#E2E8E5]">
-    <div class="max-w-4xl space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[#047857] text-xs font-bold">
-        <span>★ Complete Enterprise Light Theme Review Dossier</span>
+  <!-- ============================================================== -->
+  <!-- PAGE 1: COVER & EXECUTIVE SUMMARY                              -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-3">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#047857] text-white flex items-center justify-center font-black text-sm">FS</div>
+        <div>
+          <span class="text-sm font-black tracking-tight text-[#172B24] block">FreshSupply™</span>
+          <span class="text-[9px] text-[#047857] font-bold uppercase tracking-wider block -mt-1">Supply Chain OS</span>
+        </div>
       </div>
-      
-      <h2 class="text-3xl md:text-4xl font-black tracking-tight text-[#172B24] leading-tight">
-        FreshSupply B2B Wholesale Supply Chain Management Ecosystem
-      </h2>
-      <p class="text-sm md:text-base text-[#64748B] leading-relaxed">
-        Comprehensive presentation of all individual options across the <strong>Web Console & Storefront</strong>, <strong>Android Mobile App</strong>, and <strong>iOS Mobile App</strong>. Each screen is rendered in the light-theme corporate SaaS standard, providing high-contrast readability, cold chain telemetry, dual commercial pricing, and tiered wholesale pricing slabs.
+      <span class="px-3 py-1 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[#047857] text-[10px] font-bold">
+        Executive Review Dossier • 2026
+      </span>
+    </div>
+
+    <!-- Center Content -->
+    <div class="space-y-5 my-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[#047857] text-xs font-bold">
+        <span>★ Official B2B Wholesale Design Specification</span>
+      </div>
+
+      <h1 class="text-3xl font-black text-[#172B24] tracking-tight leading-tight">
+        FreshSupply B2B Wholesale Grocery &amp; Supply Chain Ecosystem
+      </h1>
+      <p class="text-xs text-[#64748B] leading-relaxed">
+        Comprehensive design specification and verified high-resolution screen presentation covering the <strong>Web Console</strong>, <strong>Android Mobile App (Material Design 3)</strong>, and <strong>iOS Mobile App (SwiftUI / Apple HIG)</strong>. Built with a verified light-theme SaaS palette (`#F7F9F8` canvas, `#FFFFFF` cards, `#047857` primary emerald), dual wholesale pricing (Quintal &amp; Kg), and customer-specific negotiated commercial agreements.
       </p>
 
-      <!-- Metadata Card -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <!-- Metadata Box -->
+      <div class="grid grid-cols-2 gap-3 p-4 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
         <div>
           <span class="text-[10px] text-[#64748B] font-semibold uppercase block">Prepared For</span>
-          <span class="font-bold text-[#172B24] text-sm">Client Executive Committee</span>
+          <span class="font-bold text-[#172B24] text-xs">Client Executive Committee</span>
         </div>
         <div>
-          <span class="text-[10px] text-[#64748B] font-semibold uppercase block">Theme Specification</span>
-          <span class="font-bold text-[#047857] text-sm">Premium Light SaaS (#F7F9F8)</span>
+          <span class="text-[10px] text-[#64748B] font-semibold uppercase block">Design Palette</span>
+          <span class="font-bold text-[#047857] text-xs">Light SaaS Theme (#F7F9F8)</span>
         </div>
         <div>
-          <span class="text-[10px] text-[#64748B] font-semibold uppercase block">Total Screen Coverage</span>
-          <span class="font-bold text-[#172B24] text-sm">21 High-Res Screens</span>
+          <span class="text-[10px] text-[#64748B] font-semibold uppercase block">Platform Coverage</span>
+          <span class="font-bold text-[#172B24] text-xs">Web Console • Android • iOS</span>
         </div>
         <div>
-          <span class="text-[10px] text-[#64748B] font-semibold uppercase block">Verification Status</span>
-          <span class="font-bold text-[#10B981] text-sm">Ready for Sign-Off</span>
+          <span class="text-[10px] text-[#64748B] font-semibold uppercase block">Total Screens</span>
+          <span class="font-bold text-[#10B981] text-xs">21 High-Res Screens</span>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 text-xs shadow-xs">
+        <span class="text-[10px] font-bold text-[#172B24] uppercase tracking-wider block">Document Structure</span>
+        <div class="grid grid-cols-2 gap-2 text-[11px] text-[#64748B]">
+          <div>• Module 01: Web Desktop Applications (11 Screens)</div>
+          <div>• Module 02: Android Mobile App (5 Screens)</div>
+          <div>• Module 03: iOS Mobile App (5 Screens)</div>
+          <div>• Module 04: Design System Tokens</div>
+          <div>• Module 05: Client Approval Sign-Off Block</div>
+          <div>• Verified Commercial Tier Pricing Engine</div>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- Footer -->
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-3 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Client Approval Deck</span>
+      <span class="font-bold text-[#172B24]">Page 01 / 20</span>
+    </div>
+  </div>
 
   <!-- ============================================================== -->
-  <!-- MODULE 01: WEB DESKTOP CONSOLE & STOREFRONT (1440 × 900)       -->
+  <!-- PAGE 2: WEB SCREEN 1.1 — STOREFRONT                            -->
   <!-- ============================================================== -->
-  <section class="max-w-7xl mx-auto px-6 py-12 page-break">
-    <div class="flex items-end justify-between mb-8 border-b border-[#E2E8E5] pb-4">
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
       <div>
-        <span class="text-xs font-bold text-[#047857] uppercase tracking-wider">Module 01</span>
-        <h3 class="text-2xl font-black text-[#172B24] mt-1">Web Desktop Applications & Operations Console</h3>
-        <p class="text-xs text-[#64748B] mt-1">Storefront, Order Fulfillment, Inventory, Pricing, Logistics, CRM, Collections & BI</p>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.1</span>
+        <h2 class="text-base font-black text-[#172B24]">Wholesale Produce Storefront &amp; Bulk Ordering</h2>
       </div>
-      <span class="text-xs font-mono text-[#64748B]">Viewport: 1440 × 900 Desktop</span>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Buyer Storefront • 1440 × 900
+      </span>
     </div>
 
-    <div class="space-y-12">
-      
-      <!-- Screen 1.1: Storefront -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.1 — Wholesale Produce Storefront & Catalog (Buyer Interface)</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] font-bold text-[10px]">Commerce / Storefront</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-storefront.png" alt="Wholesale Storefront" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> Dual pricing display (Price/Quintal & Price/Kg), real-time live stock indicator, category tabs, and bulk cart counter.</p>
-      </div>
-
-      <!-- Screen 1.2: Admin Dashboard -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.2 — Supply Chain Console Admin Dashboard (Executive Overview)</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] font-bold text-[10px]">Overview / Dashboard</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-dashboard.png" alt="Admin Dashboard" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> Inbound (428.6 MT) vs Outbound (298.6 MT) logistics throughput curves, total inventory KPI, depletion risk monitor, wholesale pricing slabs.</p>
-      </div>
-
-      <!-- Screen 1.3: Orders Management -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.3 — Wholesale Order Management & Fulfillment Pipeline</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] font-bold text-[10px]">Commerce / Orders</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-orders.png" alt="Orders Management" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> 128 orders tracking, customer commercial terms (Net-30/Net-15), credit approval status, picking at cold hubs, and Reefer GPS manifest triggers.</p>
-      </div>
-
-      <!-- Screen 1.4: Inventory & Cold Storage Hubs -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.4 — Real-Time Inventory & Cold Storage Hub Management</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A] font-bold text-[10px]">Commerce / Inventory</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-inventory.png" alt="Inventory Hubs" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> Multi-chamber cold hub tracking (12°C–14°C Produce, 4°C Dairy), burn rate per day, stock cover days, and automated PO reorder triggers.</p>
-      </div>
-
-      <!-- Screen 1.5: Customer-Specific Pricing -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.5 — Customer-Specific Wholesale Pricing Engine & Contracts</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] font-bold text-[10px]">Commerce / Customer Pricing</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-customer-pricing.png" alt="Customer Pricing" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> 120 customer accounts, 42 custom negotiated contracts, custom rate assignments per SKU, and margin lock protection (>14.5%).</p>
-      </div>
-
-      <!-- Screen 1.6: Dispatch & Reefer Fleet -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.6 — Dispatch & Reefer Fleet Operations (Cold Chain Telemetry)</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] font-bold text-[10px]">Operations / Dispatch</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-logistics.png" alt="Fleet Operations" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> 14 active reefer trucks, internal cargo chamber temperature telemetry (12.4°C), route manifests, and dock unloading status.</p>
-      </div>
-
-      <!-- Screen 1.7: Sales CRM & Customer 360 -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.7 — B2B Sales CRM, Opportunity Pipeline & Customer 360</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] font-bold text-[10px]">CRM / Pipeline</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-sales-crm.png" alt="Sales CRM" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> ₹1.42 Cr sales pipeline, multi-stage opportunity cards (Lead ➔ Negotiation ➔ Credit Check ➔ Contract), Customer 360 metrics.</p>
-      </div>
-
-      <!-- Screen 1.8: Collections & AR Aging -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.8 — Accounts Receivable Aging Buckets & Collections</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A] font-bold text-[10px]">Finance / Collections</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-collections.png" alt="AR Aging" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> 5 aging buckets (Current 0-15d, 16-30d, 31-60d, 61-90d, >90d), DSO (22.4 days), and automated credit notice triggers.</p>
-      </div>
-
-      <!-- Screen 1.9: Executive BI & P&L -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.9 — Executive BI & Supply Chain Contribution Margins P&L</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] font-bold text-[10px]">Analytics / BI</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-executive-bi.png" alt="Executive BI" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> ₹2.84 Cr monthly GMV, 18.6% gross procurement margin, cold chain waste reduction (1.4% vs 8.5% benchmark), and logistics cost per MT.</p>
-      </div>
-
-      <!-- Screen 1.10: Claims Inspection -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.10 — Claims & Returns Quality Inspection (AI Optical Defect Grading)</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A] font-bold text-[10px]">Quality Governance</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-claims.png" alt="Claims Inspection" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> Customer photo upload vs warehouse dispatch QC record (95%), automated AI defect classification (Grade D3 Major • 28.4% damaged), refund approval.</p>
-      </div>
-
-      <!-- Screen 1.11: Vendor Registration -->
-      <div class="bg-white rounded-3xl p-6 border border-[#E2E8E5] space-y-4 device-shadow card-hover transition-all">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-3">
-          <span class="font-bold text-sm text-[#172B24]">Screen 1.11 — Wholesale Vendor Partner Registration & Onboarding</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] font-bold text-[10px]">Vendor Onboarding</span>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#E2E8E5] bg-[#F7F9F8]">
-          <img src="web-light-vendor-reg.png" alt="Vendor Registration" class="w-full h-auto object-cover"/>
-        </div>
-        <p class="text-xs text-[#64748B]"><strong>Key Features:</strong> 3-Step supplier verification wizard, GSTIN/PAN integration, cold chain chamber requirements, and 7-day payment guarantee.</p>
-      </div>
-
+    <!-- Screenshot Frame -->
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-storefront.png" alt="Wholesale Storefront" class="w-full h-auto object-contain block"/>
     </div>
-  </section>
 
-  <!-- ============================================================== -->
-  <!-- MODULE 02: ANDROID MOBILE APPLICATION (MATERIAL DESIGN 3)      -->
-  <!-- ============================================================== -->
-  <section class="max-w-7xl mx-auto px-6 py-12 border-t border-[#E2E8E5] page-break">
-    <div class="flex items-end justify-between mb-8 border-b border-[#E2E8E5] pb-4">
+    <!-- Specifications Strip -->
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
       <div>
-        <span class="text-xs font-bold text-[#047857] uppercase tracking-wider">Module 02</span>
-        <h3 class="text-2xl font-black text-[#172B24] mt-1">Android Mobile Application (Material 3 Light Theme)</h3>
-        <p class="text-xs text-[#64748B] mt-1">Google Pixel 9 Pro • Jetpack Compose • High-Fidelity Produce Procurement</p>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Dual Commercial Pricing</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Displays Price/Quintal (₹3,800/Qtl) and effective Price/Kg (₹38.00/kg) for B2B buyers.</p>
       </div>
-      <span class="text-xs font-mono text-[#64748B]">Viewport: 412 × 915</span>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Android 2.1: Catalog -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 2.1 — Wholesale Catalog</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Catalog Tab</span>
-        </div>
-        <div class="rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-[#F7F9F8]">
-          <img src="android-light-catalog.png" alt="Android Catalog" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">2-Column produce grid, dual pricing (Quintal/Kg), delivery address pill, search bar.</p>
-      </div>
-
-      <!-- Android 2.2: Product Detail -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 2.2 — Tiered Wholesale Pricing</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Product PDP</span>
-        </div>
-        <div class="rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-[#F7F9F8]">
-          <img src="android-light-product-detail.png" alt="Android Product Detail" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">Volume slabs table (1-9 Bags, 10-49 Bags 3% Off, ≥50 Bags 6% Off), packaging toggle.</p>
-      </div>
-
-      <!-- Android 2.3: Bulk Cart -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 2.3 — Bulk Planner & Cart</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Planner Tab</span>
-        </div>
-        <div class="rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-[#F7F9F8]">
-          <img src="android-light-cart.png" alt="Android Cart" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">1.5 MT bulk order calculator, Net-30 revolving credit line pill, quantity stepper.</p>
-      </div>
-
-      <!-- Android 2.4: Orders Tracking -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 2.4 — Orders & Reefer Tracking</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Orders Tab</span>
-        </div>
-        <div class="rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-[#F7F9F8]">
-          <img src="android-light-orders.png" alt="Android Orders" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">Live Reefer telemetry (12.4°C), route progress timeline, OTP (5841) verification.</p>
-      </div>
-
-      <!-- Android 2.5: Business Profile -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 2.5 — Business Profile & Credit</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Account Tab</span>
-        </div>
-        <div class="rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-[#F7F9F8]">
-          <img src="android-light-profile.png" alt="Android Profile" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">Commercial revolving facility card (₹3.75L / ₹5.00L), assigned rates, invoices.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================== -->
-  <!-- MODULE 03: IOS MOBILE APPLICATION (APPLE HIG / SWIFTUI)        -->
-  <!-- ============================================================== -->
-  <section class="max-w-7xl mx-auto px-6 py-12 border-t border-[#E2E8E5] page-break">
-    <div class="flex items-end justify-between mb-8 border-b border-[#E2E8E5] pb-4">
       <div>
-        <span class="text-xs font-bold text-[#047857] uppercase tracking-wider">Module 03</span>
-        <h3 class="text-2xl font-black text-[#172B24] mt-1">iOS Mobile Application (Apple HIG Light Theme)</h3>
-        <p class="text-xs text-[#64748B] mt-1">Apple iPhone 16 Pro • SwiftUI • Dynamic Island • SF Symbols</p>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Live Stock Telemetry</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Stock availability badge (e.g. 8.5 Quintal available) synchronized directly with cold storage hubs.</p>
       </div>
-      <span class="text-xs font-mono text-[#64748B]">Viewport: 393 × 852</span>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">High-Contrast Produce Grid</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Top-down macro photography on clean white cards with instant "+ Add Bulk" ordering.</p>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- iOS 3.1: Catalog -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 3.1 — Wholesale Catalog Home</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">SwiftUI HIG</span>
-        </div>
-        <div class="rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white">
-          <img src="ios-light-catalog.png" alt="iOS Catalog" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">iOS 24pt large title, rounded search bar, category chips, SF Symbols Tab Bar.</p>
-      </div>
-
-      <!-- iOS 3.2: Product Detail -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 3.2 — Product Detail & Dynamic Island</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">iOS Native PDP</span>
-        </div>
-        <div class="rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white">
-          <img src="ios-light-product-detail.png" alt="iOS Product Detail" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">Dynamic Island stock pulse, native segmented control, commercial credit pill.</p>
-      </div>
-
-      <!-- iOS 3.3: Bulk Cart -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 3.3 — Bulk Plan & Credit Checkout</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Bulk Plan Tab</span>
-        </div>
-        <div class="rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white">
-          <img src="ios-light-cart.png" alt="iOS Cart" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">B2B credit line summary, produce items, Net-30 credit checkout button.</p>
-      </div>
-
-      <!-- iOS 3.4: Orders -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 3.4 — Orders & Live Reefer Tracking</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Orders Tab</span>
-        </div>
-        <div class="rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white">
-          <img src="ios-light-orders.png" alt="iOS Orders" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">Chamber temperature gauge (12.4°C), route progress milestones, dock delivery OTP.</p>
-      </div>
-
-      <!-- iOS 3.5: Account -->
-      <div class="bg-white rounded-3xl p-5 border border-[#E2E8E5] space-y-3 device-shadow">
-        <div class="flex items-center justify-between text-xs border-b border-[#E2E8E5] pb-2">
-          <span class="font-bold text-[#172B24]">Screen 3.5 — Commercial Credit & Profile</span>
-          <span class="px-2 py-0.5 rounded bg-[#ECFDF5] text-[#047857] font-bold text-[10px]">Account Tab</span>
-        </div>
-        <div class="rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white">
-          <img src="ios-light-profile.png" alt="iOS Profile" class="w-full h-auto object-contain"/>
-        </div>
-        <p class="text-[11px] text-[#64748B]">Apple HIG credit limit card (₹3.75L balance), custom produce rates, tax invoices.</p>
-      </div>
-
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 02 / 20</span>
     </div>
-  </section>
+  </div>
 
   <!-- ============================================================== -->
-  <!-- MODULE 04: DESIGN SYSTEM TOKENS & SPECIFICATIONS               -->
+  <!-- PAGE 3: WEB SCREEN 1.2 — DASHBOARD                             -->
   <!-- ============================================================== -->
-  <section class="max-w-7xl mx-auto px-6 py-12 border-t border-[#E2E8E5]">
-    <div class="mb-8">
-      <span class="text-xs font-bold text-[#047857] uppercase tracking-wider">Specifications</span>
-      <h3 class="text-2xl font-black text-[#172B24] mt-1">Light Theme Color Tokens & Architectural Rationale</h3>
-      <p class="text-xs text-[#64748B] mt-1">Engineered for clarity in brightly-lit warehouses, retail backrooms, and enterprise boardrooms.</p>
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.2</span>
+        <h2 class="text-base font-black text-[#172B24]">Supply Chain Console Admin Dashboard</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] text-[9px] font-bold">
+        Operations Console • 1440 × 900
+      </span>
     </div>
 
-    <!-- Swatches -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-10">
-      <div class="p-3 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 shadow-xs">
-        <div class="w-full h-12 rounded-xl bg-[#047857]"></div>
-        <div>
-          <div class="text-[11px] font-bold text-[#172B24]">Primary Emerald</div>
-          <div class="text-[10px] font-mono text-[#64748B]">#047857</div>
-        </div>
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-dashboard.png" alt="Admin Dashboard" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Throughput Analytics</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Dual-line comparison curve tracking Inbound receipts (428.6 MT) vs Outbound fulfillment (298.6 MT).</p>
       </div>
-      <div class="p-3 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 shadow-xs">
-        <div class="w-full h-12 rounded-xl bg-[#10B981]"></div>
-        <div>
-          <div class="text-[11px] font-bold text-[#172B24]">Accent Green</div>
-          <div class="text-[10px] font-mono text-[#64748B]">#10B981</div>
-        </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Supply Chain KPIs</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Total physical inventory (3,842.5 MT), active dispatch volume, and automated reorder alerts.</p>
       </div>
-      <div class="p-3 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 shadow-xs">
-        <div class="w-full h-12 rounded-xl bg-[#F7F9F8] border border-[#CBD5E1]"></div>
-        <div>
-          <div class="text-[11px] font-bold text-[#172B24]">Light Canvas</div>
-          <div class="text-[10px] font-mono text-[#64748B]">#F7F9F8</div>
-        </div>
-      </div>
-      <div class="p-3 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 shadow-xs">
-        <div class="w-full h-12 rounded-xl bg-[#FFFFFF] border border-[#CBD5E1]"></div>
-        <div>
-          <div class="text-[11px] font-bold text-[#172B24]">Card Surface</div>
-          <div class="text-[10px] font-mono text-[#64748B]">#FFFFFF</div>
-        </div>
-      </div>
-      <div class="p-3 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 shadow-xs">
-        <div class="w-full h-12 rounded-xl bg-[#172B24]"></div>
-        <div>
-          <div class="text-[11px] font-bold text-[#172B24]">Primary Text</div>
-          <div class="text-[10px] font-mono text-[#64748B]">#172B24</div>
-        </div>
-      </div>
-      <div class="p-3 bg-white rounded-2xl border border-[#E2E8E5] space-y-2 shadow-xs">
-        <div class="w-full h-12 rounded-xl bg-[#E2E8E5]"></div>
-        <div>
-          <div class="text-[11px] font-bold text-[#172B24]">Border Line</div>
-          <div class="text-[10px] font-mono text-[#64748B]">#E2E8E5</div>
-        </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Wholesale Pricing Slabs</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Direct quick-edit table to adjust tiered volume rates (e.g. ≥1,000 kg @ ₹18.75/kg).</p>
       </div>
     </div>
 
-    <!-- Official Client Sign-off Block (Printable) -->
-    <div class="bg-white rounded-3xl p-8 border-2 border-[#A7F3D0] space-y-6 shadow-sm">
-      <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-4">
-        <div>
-          <h4 class="text-base font-black text-[#172B24] uppercase tracking-wider">Client Approval Sign-Off Block</h4>
-          <p class="text-xs text-[#64748B] mt-0.5">Please review the visual specifications above and authorize development phase sign-off.</p>
-        </div>
-        <div class="w-10 h-10 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] flex items-center justify-center text-[#047857] font-bold text-lg">
-          ✓
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 03 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 4: WEB SCREEN 1.3 — ORDERS MANAGEMENT                     -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.3</span>
+        <h2 class="text-base font-black text-[#172B24]">Wholesale Orders Management &amp; Fulfillment Pipeline</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Commerce / Orders • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-orders.png" alt="Orders Management" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">128 Orders Pipeline</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Real-time status tracking from Picking at Cold Hubs to Reefer En-Route and POD verification.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Commercial Terms</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Automated buyer credit verification (Net-30/Net-15) and custom contract discount application.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Fulfillment Actions</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">One-click manifest generation, live GPS fleet tracking, and automated GST tax invoices.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 04 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 5: WEB SCREEN 1.4 — INVENTORY HUBS                        -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.4</span>
+        <h2 class="text-base font-black text-[#172B24]">Real-Time Inventory &amp; Multi-Chamber Cold Storage Hubs</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A] text-[9px] font-bold">
+        Commerce / Inventory • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-inventory.png" alt="Inventory Hubs" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">3,842.5 MT Stock</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Aggregated physical inventory across 4 cold chain hubs with 78.4% capacity utilization.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Burn Rate &amp; Cover Days</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Calculates daily MT consumption (e.g. 28.4 MT/day) to estimate exact days of stock cover.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Depletion Alerts</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Automated warnings triggering replenishment purchase orders before stockouts occur.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 05 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 6: WEB SCREEN 1.5 — CUSTOMER PRICING                      -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.5</span>
+        <h2 class="text-base font-black text-[#172B24]">Customer-Specific Wholesale Pricing Engine &amp; Contracts</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Pricing / Contracts • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-customer-pricing.png" alt="Customer Pricing" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">120 B2B Accounts</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Centralized database-driven price lists configured per buyer account without code changes.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Unified Storefront Experience</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Every customer accesses the exact same UI; prices dynamically adjust based on active contract.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Margin Protection Lock</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Automated guardrails preventing contracts below minimum gross margin threshold (&gt;14.5%).</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 06 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 7: WEB SCREEN 1.6 — DISPATCH & FLEET                      -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.6</span>
+        <h2 class="text-base font-black text-[#172B24]">Dispatch &amp; Reefer Fleet Operations (Cold Chain Telemetry)</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] text-[9px] font-bold">
+        Operations / Fleet • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-logistics.png" alt="Fleet Operations" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">14 Active Reefer Trucks</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">298.4 MT produce en-route across 18 delivery routes with 100% real-time GPS telemetry.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Cold Chain SLA (12.4°C)</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Live internal chamber temperature sensors ensure produce integrity between 10°C–14°C.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">On-Time Performance</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">99.2% on-time delivery rate with average transit duration of 42 minutes per urban retail hub.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 07 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 8: WEB SCREEN 1.7 — SALES CRM                             -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.7</span>
+        <h2 class="text-base font-black text-[#172B24]">B2B Sales CRM, Opportunity Pipeline &amp; Customer 360</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        CRM / Growth • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-sales-crm.png" alt="Sales CRM" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">₹1.42 Cr Pipeline</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Visual deal stages: New Lead ➔ Price Negotiation ➔ Credit Verification ➔ Contract Signed.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Customer 360 Spotlight</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Comprehensive buyer profile showing lifetime volume (142 MT), average order, and credit terms.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">High Conversion</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">42.6% lead conversion rate into recurring weekly procurement accounts.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 08 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 9: WEB SCREEN 1.8 — COLLECTIONS & AGING                   -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.8</span>
+        <h2 class="text-base font-black text-[#172B24]">Accounts Receivable Aging Buckets &amp; Collections</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A] text-[9px] font-bold">
+        Finance / AR Aging • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-collections.png" alt="AR Collections" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">5 Aging Buckets</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Current (0–15d), 16–30d, 31–60d, 61–90d, and &gt;90d buckets with automated escalation.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Low Days Sales Out</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Average DSO of 22.4 days compared to 35-day wholesale industry benchmark.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Credit Risk Ledger</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Instant visibility into credit utilization percentage per customer and overdue risk status.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 09 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 10: WEB SCREEN 1.9 — EXECUTIVE BI                         -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.9</span>
+        <h2 class="text-base font-black text-[#172B24]">Executive BI &amp; Supply Chain Contribution Margins P&amp;L</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Analytics / BI • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-executive-bi.png" alt="Executive BI" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">₹2.84 Cr Monthly Run Rate</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Tracks GMV with +14.2% MoM growth driven by predictable recurring restaurant/retail orders.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">18.6% Gross Margin</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Average gross procurement margin exceeding internal budget target of 17.5%.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">1.4% Cold Chain Waste</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Cold storage telemetry reduces wastage from 8.5% mandi baseline to 1.4%, saving ₹22 Lakhs.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 10 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 11: WEB SCREEN 1.10 — CLAIMS INSPECTION                   -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.10</span>
+        <h2 class="text-base font-black text-[#172B24]">Quality Claims &amp; Optical AI Defect Grading Review</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A] text-[9px] font-bold">
+        Quality Assurance • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-claims.png" alt="Claims Review" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">AI Defect Grading</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Automated optical grading detects Major D3 defect (28.4% damaged) with 96% confidence score.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Dispatch Traceability</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Correlates claim photo with warehouse QC score (95% Grade-A) and transit temperatures (12°C–14°C).</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">One-Click Resolution</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Allows instant issuance of credit notes (₹28,560) or scheduling replacement truck pickup.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 11 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 12: WEB SCREEN 1.11 — VENDOR REGISTRATION                 -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 01 • Screen 1.11</span>
+        <h2 class="text-base font-black text-[#172B24]">Wholesale Vendor Partner Registration &amp; Onboarding</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Vendor Onboarding • 1440 × 900
+      </span>
+    </div>
+
+    <div class="my-auto rounded-2xl overflow-hidden border border-[#CBD5E1] bg-white shadow-xs">
+      <img src="web-light-vendor-reg.png" alt="Vendor Registration" class="w-full h-auto object-contain block"/>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">3-Step Verification</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Streamlined portal for FPOs, farmers, and wholesale aggregators to verify GSTIN and entity PAN.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">Cold Hub Integration</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Configures warehouse storage parameters (0°C–14°C) and loading dock appointments.</p>
+      </div>
+      <div>
+        <strong class="text-[#172B24] block text-[11px] mb-0.5">7-Day Payment SLA</strong>
+        <p class="text-[10px] text-[#64748B] leading-tight">Guaranteed automated payment release upon digital QC grade verification at the inbound gate.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Web Desktop Suite</span>
+      <span class="font-bold text-[#172B24]">Page 12 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 13: ANDROID SCREENS 2.1 & 2.2                             -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 02 • Screens 2.1 &amp; 2.2</span>
+        <h2 class="text-base font-black text-[#172B24]">Android App: Catalog &amp; Tiered Wholesale Pricing</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Google Pixel 9 Pro • Material 3
+      </span>
+    </div>
+
+    <!-- 2 Phones Side-by-Side -->
+    <div class="my-auto flex items-center justify-center gap-8 py-2">
+      <div class="w-[72mm] rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="android-light-catalog.png" alt="Android Catalog" class="w-full h-auto object-contain block"/>
+      </div>
+      <div class="w-[72mm] rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="android-light-product-detail.png" alt="Android Product Detail" class="w-full h-auto object-contain block"/>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 2.1: Produce Catalog &amp; Discovery</strong>
+        <p class="text-[10px] text-[#64748B]">2-column produce cards with dual Quintal/Kg pricing, delivery location selector, category chips, and Material 3 navigation bar.</p>
+      </div>
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 2.2: Tiered Volume Discount Slabs</strong>
+        <p class="text-[10px] text-[#64748B]">Live pricing slabs (1-9 Bags @ ₹1,600, 10-49 Bags 3% Off, ≥50 Bags 6% Off), packaging selector (Bags vs Crates), and bulk stepper.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Android Mobile Ecosystem</span>
+      <span class="font-bold text-[#172B24]">Page 13 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 14: ANDROID SCREENS 2.3 & 2.4                             -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 02 • Screens 2.3 &amp; 2.4</span>
+        <h2 class="text-base font-black text-[#172B24]">Android App: Bulk Cart &amp; Real-Time Reefer Tracking</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Google Pixel 9 Pro • Material 3
+      </span>
+    </div>
+
+    <div class="my-auto flex items-center justify-center gap-8 py-2">
+      <div class="w-[72mm] rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="android-light-cart.png" alt="Android Cart" class="w-full h-auto object-contain block"/>
+      </div>
+      <div class="w-[72mm] rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="android-light-orders.png" alt="Android Orders" class="w-full h-auto object-contain block"/>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 2.3: Bulk Planner &amp; Wholesale Cart</strong>
+        <p class="text-[10px] text-[#64748B]">1.5 MT bulk order calculator, Net-30 revolving credit line pill (₹3.75L balance), minimum order qualification, and 1-tap dispatch PO button.</p>
+      </div>
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 2.4: Orders &amp; Reefer Live Telemetry</strong>
+        <p class="text-[10px] text-[#64748B]">Real-time Reefer chamber telemetry (12.4°C), route progress milestones, dock delivery OTP (5841) verification, and invoice access.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Android Mobile Ecosystem</span>
+      <span class="font-bold text-[#172B24]">Page 14 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 15: ANDROID SCREEN 2.5 & MATERIAL 3 SPECS                 -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 02 • Screen 2.5</span>
+        <h2 class="text-base font-black text-[#172B24]">Android App: Business Profile &amp; Commercial Credit Facility</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Material 3 Architecture
+      </span>
+    </div>
+
+    <div class="my-auto grid grid-cols-2 gap-6 items-center">
+      <div class="flex justify-center">
+        <div class="w-[74mm] rounded-[28px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+          <img src="android-light-profile.png" alt="Android Profile" class="w-full h-auto object-contain block"/>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs pt-2">
-        <div class="space-y-4">
+      <div class="space-y-3 text-xs">
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-1.5">
+          <strong class="text-[#047857] block text-xs">Revolving Commercial Credit Line</strong>
+          <p class="text-[10px] text-[#64748B] leading-relaxed">
+            Visual card displaying sanctioned commercial limit (₹5,00,000), current utilization (₹1,25,000), Net-30 payment terms, and next statement due date.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-1.5">
+          <strong class="text-[#172B24] block text-xs">Assigned Contract Rates</strong>
+          <p class="text-[10px] text-[#64748B] leading-relaxed">
+            Quick-lookup of agreed produce rates (Tomato ₹35/kg, Onion ₹19.50/kg) with contract identifier #FS-KOR-2026-98.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-1.5">
+          <strong class="text-[#172B24] block text-xs">Jetpack Compose Design Architecture</strong>
+          <p class="text-[10px] text-[#64748B] leading-relaxed">
+            100% Kotlin Jetpack Compose implementation utilizing Material 3 tonal surfaces, dynamic system bars, high-contrast typography, and accessible tap targets.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Android Mobile Ecosystem</span>
+      <span class="font-bold text-[#172B24]">Page 15 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 16: IOS SCREENS 3.1 & 3.2                                 -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 03 • Screens 3.1 &amp; 3.2</span>
+        <h2 class="text-base font-black text-[#172B24]">iOS App: Wholesale Catalog &amp; Dynamic Island PDP</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Apple iPhone 16 Pro • SwiftUI
+      </span>
+    </div>
+
+    <div class="my-auto flex items-center justify-center gap-8 py-2">
+      <div class="w-[72mm] rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="ios-light-catalog.png" alt="iOS Catalog" class="w-full h-auto object-contain block"/>
+      </div>
+      <div class="w-[72mm] rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="ios-light-product-detail.png" alt="iOS Product Detail" class="w-full h-auto object-contain block"/>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 3.1: SwiftUI Large Title Catalog</strong>
+        <p class="text-[10px] text-[#64748B]">iOS 24pt large title, rounded search bar, category chips, 2-column produce cards with quintal pricing, and SF Symbols Tab Bar.</p>
+      </div>
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 3.2: Dynamic Island &amp; Segmented Control</strong>
+        <p class="text-[10px] text-[#64748B]">Dynamic Island live stock indicator, native iOS segmented control (Bags vs Crates), and B2B commercial credit line status pill.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • iOS Mobile Ecosystem</span>
+      <span class="font-bold text-[#172B24]">Page 16 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 17: IOS SCREENS 3.3 & 3.4                                 -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 03 • Screens 3.3 &amp; 3.4</span>
+        <h2 class="text-base font-black text-[#172B24]">iOS App: Bulk Plan Cart &amp; Real-Time Orders Tracker</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Apple iPhone 16 Pro • SwiftUI
+      </span>
+    </div>
+
+    <div class="my-auto flex items-center justify-center gap-8 py-2">
+      <div class="w-[72mm] rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="ios-light-cart.png" alt="iOS Cart" class="w-full h-auto object-contain block"/>
+      </div>
+      <div class="w-[72mm] rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+        <img src="ios-light-orders.png" alt="iOS Orders" class="w-full h-auto object-contain block"/>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 p-3.5 bg-white rounded-2xl border border-[#E2E8E5] text-xs shadow-xs">
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 3.3: Bulk Plan &amp; Net-30 Checkout</strong>
+        <p class="text-[10px] text-[#64748B]">Clean white cards, volume discount rebate calculation, frosted glass action bar, and 1-tap Net-30 credit checkout button.</p>
+      </div>
+      <div>
+        <strong class="text-[#047857] block text-[11px] mb-0.5">Screen 3.4: Orders &amp; Reefer Tracking</strong>
+        <p class="text-[10px] text-[#64748B]">Live delivery card, chamber temperature gauge (12.4°C), route milestones tracker, and dock delivery OTP verification.</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • iOS Mobile Ecosystem</span>
+      <span class="font-bold text-[#172B24]">Page 17 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 18: IOS SCREEN 3.5 & APPLE HIG SPECS                      -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 03 • Screen 3.5</span>
+        <h2 class="text-base font-black text-[#172B24]">iOS App: Commercial Credit Ledger &amp; Account Profile</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Apple HIG Architecture
+      </span>
+    </div>
+
+    <div class="my-auto grid grid-cols-2 gap-6 items-center">
+      <div class="flex justify-center">
+        <div class="w-[74mm] rounded-[36px] overflow-hidden border-2 border-[#CBD5E1] bg-white shadow-md">
+          <img src="ios-light-profile.png" alt="iOS Profile" class="w-full h-auto object-contain block"/>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-1.5">
+          <strong class="text-[#047857] block text-xs">Apple HIG Credit Facility Card</strong>
+          <p class="text-[10px] text-[#64748B] leading-relaxed">
+            Gradient container displaying available revolving credit balance (₹3,75,000 of ₹5,00,000), percentage utilized (25%), and Net-30 statement dates.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-1.5">
+          <strong class="text-[#172B24] block text-xs">Negotiated Commercial Rates List</strong>
+          <p class="text-[10px] text-[#64748B] leading-relaxed">
+            Displays active contracted rates per kilogram with percentage savings below standard mandi rates.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-1.5">
+          <strong class="text-[#172B24] block text-xs">SwiftUI Design Architecture</strong>
+          <p class="text-[10px] text-[#64748B] leading-relaxed">
+            Native iOS 18 SwiftUI components with SF Pro typography, SF Symbols iconography, Dynamic Island live activities, and tactile haptic feedback.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • iOS Mobile Ecosystem</span>
+      <span class="font-bold text-[#172B24]">Page 18 / 20</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAGE 19: DESIGN SYSTEM TOKENS & ARCHITECTURAL STANDARDS        -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 04</span>
+        <h2 class="text-base font-black text-[#172B24]">Design System Tokens &amp; Architectural Rationale</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Enterprise Design Tokens
+      </span>
+    </div>
+
+    <div class="my-auto space-y-5">
+      <!-- 6 Main Color Tokens -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="p-3 bg-white rounded-xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <div class="w-full h-10 rounded-lg bg-[#047857]"></div>
           <div>
-            <label class="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Approved By (Client Lead)</label>
-            <div class="h-10 border-b-2 border-[#CBD5E1] flex items-end pb-1 font-bold text-[#172B24]">
-              _______________________________________
-            </div>
-          </div>
-          <div>
-            <label class="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Designation / Role</label>
-            <div class="h-10 border-b-2 border-[#CBD5E1] flex items-end pb-1 text-[#64748B]">
-              Head of Operations / Technology
-            </div>
+            <span class="font-bold text-xs text-[#172B24] block">Primary Emerald</span>
+            <span class="font-mono text-[10px] text-[#64748B]">#047857 • Brand &amp; Primary CTAs</span>
           </div>
         </div>
 
-        <div class="space-y-4">
+        <div class="p-3 bg-white rounded-xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <div class="w-full h-10 rounded-lg bg-[#10B981]"></div>
           <div>
-            <label class="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Client Signature</label>
-            <div class="h-10 border-b-2 border-[#CBD5E1] flex items-end pb-1 text-[#64748B] italic">
-              [Authorized Signature]
-            </div>
-          </div>
-          <div>
-            <label class="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Date of Approval</label>
-            <div class="h-10 border-b-2 border-[#CBD5E1] flex items-end pb-1 font-mono text-[#172B24]">
-              ____ / ____ / 2026
-            </div>
+            <span class="font-bold text-xs text-[#172B24] block">Accent Green</span>
+            <span class="font-mono text-[10px] text-[#64748B]">#10B981 • Trends &amp; Badges</span>
           </div>
         </div>
 
-        <div class="p-4 bg-[#F7F9F8] rounded-2xl border border-[#E2E8E5] space-y-2">
-          <strong class="text-[#047857] block font-bold">Approved Modules Checklist</strong>
-          <ul class="text-[11px] text-[#64748B] space-y-1">
-            <li>✓ Web Storefront & Catalog</li>
-            <li>✓ Web Operations Console & CRM</li>
-            <li>✓ Android App (Material 3 Full Suite)</li>
-            <li>✓ iOS App (Apple HIG Full Suite)</li>
-            <li>✓ Tiered Pricing & Credit Engine</li>
+        <div class="p-3 bg-white rounded-xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <div class="w-full h-10 rounded-lg bg-[#F7F9F8] border border-[#CBD5E1]"></div>
+          <div>
+            <span class="font-bold text-xs text-[#172B24] block">Light Canvas</span>
+            <span class="font-mono text-[10px] text-[#64748B]">#F7F9F8 • Low-Fatigue Canvas</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-white rounded-xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <div class="w-full h-10 rounded-lg bg-[#FFFFFF] border border-[#CBD5E1]"></div>
+          <div>
+            <span class="font-bold text-xs text-[#172B24] block">Card Surface</span>
+            <span class="font-mono text-[10px] text-[#64748B]">#FFFFFF • Elevated Cards</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-white rounded-xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <div class="w-full h-10 rounded-lg bg-[#172B24]"></div>
+          <div>
+            <span class="font-bold text-xs text-[#172B24] block">Primary Text</span>
+            <span class="font-mono text-[10px] text-[#64748B]">#172B24 • High-Contrast</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-white rounded-xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <div class="w-full h-10 rounded-lg bg-[#E2E8E5]"></div>
+          <div>
+            <span class="font-bold text-xs text-[#172B24] block">Border Line</span>
+            <span class="font-mono text-[10px] text-[#64748B]">#E2E8E5 • 1px Structural Lines</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography and Layout Rules -->
+      <div class="grid grid-cols-2 gap-4 text-xs">
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <strong class="text-[#047857] block text-xs">Typography Hierarchy</strong>
+          <ul class="text-[10px] text-[#64748B] space-y-1">
+            <li>• <strong>Primary Font</strong>: Plus Jakarta Sans / SF Pro (clean corporate geometry)</li>
+            <li>• <strong>Numeric Font</strong>: JetBrains Mono (monospaced clarity for weights and prices)</li>
+            <li>• <strong>Contrast Ratio</strong>: 11.4:1 against canvas (WCAG AAA compliant)</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-2">
+          <strong class="text-[#047857] block text-xs">Architectural Principles</strong>
+          <ul class="text-[10px] text-[#64748B] space-y-1">
+            <li>• <strong>High-Contrast Light Theme</strong>: Readable in outdoor daylight and bright warehouse bays</li>
+            <li>• <strong>Zero Ambiguity Dual Pricing</strong>: Eliminates manual conversion between quintals and kilograms</li>
+            <li>• <strong>Reefer Cold Chain SLA</strong>: Real-time sensor metrics integrated across all mobile and web screens</li>
           </ul>
         </div>
       </div>
     </div>
 
-  </section>
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Design System Specifications</span>
+      <span class="font-bold text-[#172B24]">Page 19 / 20</span>
+    </div>
+  </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-[#E2E8E5] py-8 text-center text-xs text-[#64748B] bg-white">
-    FreshSupply™ B2B Wholesale Supply Chain Management Ecosystem • Complete Client Approval Document • 2026
-  </footer>
+  <!-- ============================================================== -->
+  <!-- PAGE 20: CLIENT APPROVAL SIGN-OFF BLOCK                        -->
+  <!-- ============================================================== -->
+  <div class="pdf-page">
+    <div class="flex items-center justify-between border-b border-[#E2E8E5] pb-2">
+      <div>
+        <span class="text-[9px] font-bold text-[#047857] uppercase tracking-wider block">Module 05</span>
+        <h2 class="text-base font-black text-[#172B24]">Official Client Approval &amp; Authorization Sign-Off</h2>
+      </div>
+      <span class="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0] text-[9px] font-bold">
+        Formal Authorization
+      </span>
+    </div>
+
+    <div class="my-auto space-y-5">
+      <!-- Authorization Statement -->
+      <div class="p-4 bg-white rounded-2xl border border-[#A7F3D0] shadow-xs space-y-2 text-xs">
+        <h3 class="font-black text-sm text-[#172B24]">Project Approval &amp; Development Sign-Off</h3>
+        <p class="text-[10px] text-[#64748B] leading-relaxed">
+          By signing below, the client authorized representative confirms formal review and approval of the visual specifications, user experience architecture, light-theme design system, customer-specific wholesale pricing engine, and responsive mobile interfaces for the FreshSupply platform.
+        </p>
+      </div>
+
+      <!-- Approved Scope Checklist -->
+      <div class="p-4 bg-white rounded-2xl border border-[#E2E8E5] shadow-xs space-y-2 text-xs">
+        <strong class="text-[#047857] block text-xs font-bold">Approved Deliverables Scope</strong>
+        <div class="grid grid-cols-2 gap-2 text-[10px] text-[#64748B]">
+          <div class="flex items-center gap-2">
+            <span class="text-[#10B981] font-bold">✓</span>
+            <span>Web Wholesale Storefront &amp; Bulk Ordering</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#10B981] font-bold">✓</span>
+            <span>Supply Chain Operations Console Dashboard</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#10B981] font-bold">✓</span>
+            <span>Orders Management &amp; Dispatch Fleet Telemetry</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#10B981] font-bold">✓</span>
+            <span>Customer-Specific Negotiated Pricing &amp; Contracts</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#10B981] font-bold">✓</span>
+            <span>Android Mobile Application (Material Design 3)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#10B981] font-bold">✓</span>
+            <span>iOS Mobile Application (Apple HIG / SwiftUI)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formal Signature Blocks -->
+      <div class="grid grid-cols-2 gap-6 p-5 bg-white rounded-2xl border-2 border-[#CBD5E1] shadow-xs text-xs">
+        <div class="space-y-4">
+          <div>
+            <label class="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Approved By (Client Lead)</label>
+            <div class="h-8 border-b-2 border-[#CBD5E1] flex items-end pb-1 font-bold text-[#172B24]">
+              ___________________________________________
+            </div>
+          </div>
+          <div>
+            <label class="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Designation / Executive Role</label>
+            <div class="h-8 border-b-2 border-[#CBD5E1] flex items-end pb-1 text-[#64748B]">
+              Head of Technology / Operations
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Authorized Signature</label>
+            <div class="h-8 border-b-2 border-[#CBD5E1] flex items-end pb-1 text-[#64748B] italic">
+              [Signature]
+            </div>
+          </div>
+          <div>
+            <label class="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block mb-1">Date of Approval</label>
+            <div class="h-8 border-b-2 border-[#CBD5E1] flex items-end pb-1 font-mono text-[#172B24]">
+              ____ / ____ / 2026
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#E2E8E5] pt-2 text-[10px] text-[#64748B]">
+      <span>FreshSupply™ B2B Wholesale Operating System • Final Authorization Page</span>
+      <span class="font-bold text-[#172B24]">Page 20 / 20</span>
+    </div>
+  </div>
 
 </body>
 </html>
