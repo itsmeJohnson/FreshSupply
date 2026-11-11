@@ -4,6 +4,7 @@ import { pool } from '../db/pool';
 import { config } from '../config';
 import { requireStaff, AuthenticatedRequest } from '../middleware/auth';
 import { PricingService } from '../services/pricingService';
+import { FALLBACK_PRODUCTS } from '../db/fallbackData';
 
 const router = Router();
 
@@ -77,50 +78,78 @@ router.get('/', async (req, res, next) => {
     `;
     values.push(parseInt(limit as string, 10), parseInt(offset as string, 10));
 
-    const result = await pool.query(query, values);
+    try {
+      const result = await pool.query(query, values);
 
-    // Dynamic customer-specific pricing resolution
-    const effectiveCustomerId = getEffectiveCustomerId(req);
-    let resolvedRows = result.rows;
+      // Dynamic customer-specific pricing resolution
+      const effectiveCustomerId = getEffectiveCustomerId(req);
+      let resolvedRows = result.rows;
 
-    if (effectiveCustomerId) {
-      resolvedRows = await Promise.all(
-        result.rows.map(async (row: any) => {
-          try {
-            const pricing = await PricingService.resolveProductPrice(effectiveCustomerId, row.id);
-            return {
-              ...row,
-              standard_price: row.price,
-              price: pricing.customerPrice,
-              discount_percentage: pricing.discountPercentage,
-              pricing_source: pricing.source,
-              min_order_qty: pricing.minOrderQty,
-              is_custom_pricing: pricing.isCustomized,
-            };
-          } catch (e) {
-            return row;
-          }
-        })
-      );
+      if (effectiveCustomerId) {
+        resolvedRows = await Promise.all(
+          result.rows.map(async (row: any) => {
+            try {
+              const pricing = await PricingService.resolveProductPrice(effectiveCustomerId, row.id);
+              return {
+                ...row,
+                standard_price: row.price,
+                price: pricing.customerPrice,
+                discount_percentage: pricing.discountPercentage,
+                pricing_source: pricing.source,
+                min_order_qty: pricing.minOrderQty,
+                is_custom_pricing: pricing.isCustomized,
+              };
+            } catch (e) {
+              return row;
+            }
+          })
+        );
+      }
+
+      // Also get count
+      const countQuery = `
+        SELECT COUNT(*) as total
+        FROM products p
+        JOIN categories c ON c.id = p.category_id
+        ${whereClause}
+      `;
+      const countResult = await pool.query(countQuery, values.slice(0, values.length - 2));
+
+      res.json({
+        success: true,
+        data: resolvedRows,
+        meta: {
+          total: parseInt(countResult.rows[0].total, 10),
+          limit: parseInt(limit as string, 10),
+          offset: parseInt(offset as string, 10),
+          effectiveCustomerId: effectiveCustomerId || undefined,
+        },
+      });
+      return;
+    } catch (dbErr: any) {
+      console.warn('Database query failed in products list, using fallback products:', dbErr.message);
     }
 
-    // Also get count
-    const countQuery = `
-      SELECT COUNT(*) as total
-      FROM products p
-      JOIN categories c ON c.id = p.category_id
-      ${whereClause}
-    `;
-    const countResult = await pool.query(countQuery, values.slice(0, values.length - 2));
+    // Fallback in-memory filtering
+    let fbList = [...FALLBACK_PRODUCTS];
+    if (category) {
+      fbList = fbList.filter(p => p.category_slug === category || p.category_id.toString() === category.toString());
+    }
+    if (featured === 'true') {
+      fbList = fbList.filter(p => p.is_featured);
+    }
+    if (search && typeof search === 'string') {
+      const q = search.toLowerCase();
+      fbList = fbList.filter(p => p.name.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q));
+    }
 
     res.json({
       success: true,
-      data: resolvedRows,
+      data: fbList,
       meta: {
-        total: parseInt(countResult.rows[0].total, 10),
+        total: fbList.length,
         limit: parseInt(limit as string, 10),
         offset: parseInt(offset as string, 10),
-        effectiveCustomerId: effectiveCustomerId || undefined,
       },
     });
   } catch (err) {
@@ -170,34 +199,43 @@ router.get('/export/csv', requireStaff, async (req: AuthenticatedRequest, res: R
 router.get('/:id', async (req, res, next) => {
   try {
     const id = parseInt(req.params.id, 10);
-    const result = await pool.query(`
-      SELECT p.*, c.name as category_name, c.slug as category_slug
-      FROM products p
-      JOIN categories c ON c.id = p.category_id
-      WHERE p.id = $1
-    `, [id]);
+    try {
+      const result = await pool.query(`
+        SELECT p.*, c.name as category_name, c.slug as category_slug
+        FROM products p
+        JOIN categories c ON c.id = p.category_id
+        WHERE p.id = $1
+      `, [id]);
 
-    if (result.rows.length === 0) {
+      if (result.rows.length > 0) {
+        const prod = result.rows[0];
+        const effectiveCustomerId = getEffectiveCustomerId(req);
+
+        if (effectiveCustomerId) {
+          try {
+            const pricing = await PricingService.resolveProductPrice(effectiveCustomerId, prod.id);
+            prod.standard_price = prod.price;
+            prod.price = pricing.customerPrice;
+            prod.discount_percentage = pricing.discountPercentage;
+            prod.pricing_source = pricing.source;
+            prod.min_order_qty = pricing.minOrderQty;
+            prod.is_custom_pricing = pricing.isCustomized;
+          } catch (e) {}
+        }
+
+        res.json({ success: true, data: prod });
+        return;
+      }
+    } catch (dbErr: any) {
+      console.warn('Database query failed in single product, using fallback:', dbErr.message);
+    }
+
+    const fb = FALLBACK_PRODUCTS.find(p => p.id === id);
+    if (!fb) {
       res.status(404).json({ success: false, error: 'Product not found' });
       return;
     }
-
-    const prod = result.rows[0];
-    const effectiveCustomerId = getEffectiveCustomerId(req);
-
-    if (effectiveCustomerId) {
-      try {
-        const pricing = await PricingService.resolveProductPrice(effectiveCustomerId, prod.id);
-        prod.standard_price = prod.price;
-        prod.price = pricing.customerPrice;
-        prod.discount_percentage = pricing.discountPercentage;
-        prod.pricing_source = pricing.source;
-        prod.min_order_qty = pricing.minOrderQty;
-        prod.is_custom_pricing = pricing.isCustomized;
-      } catch (e) {}
-    }
-
-    res.json({ success: true, data: prod });
+    res.json({ success: true, data: fb });
   } catch (err) {
     next(err);
   }

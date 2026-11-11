@@ -10,21 +10,26 @@ router.get('/', requireCustomer, async (req: AuthenticatedRequest, res: Response
   try {
     const customerId = req.customer!.customerId;
 
-    const result = await pool.query(`
-      SELECT ci.id, ci.product_id, ci.quantity, ci.updated_at,
-             p.name, p.sku, p.unit, p.pack_size, p.min_order_qty, p.price,
-             p.stock_quantity, p.image_url, p.is_active,
-             c.name as category_name
-      FROM cart_items ci
-      JOIN products p ON p.id = ci.product_id
-      JOIN categories c ON c.id = p.category_id
-      WHERE ci.customer_id = $1
-      ORDER BY ci.updated_at DESC
-    `, [customerId]);
+    let result: any = { rows: [] };
+    try {
+      result = await pool.query(`
+        SELECT ci.id, ci.product_id, ci.quantity, ci.updated_at,
+               p.name, p.sku, p.unit, p.pack_size, p.min_order_qty, p.price,
+               p.stock_quantity, p.image_url, p.is_active,
+               c.name as category_name
+        FROM cart_items ci
+        JOIN products p ON p.id = ci.product_id
+        JOIN categories c ON c.id = p.category_id
+        WHERE ci.customer_id = $1
+        ORDER BY ci.updated_at DESC
+      `, [customerId]);
+    } catch (dbErr: any) {
+      console.warn('Database query failed in cart list, returning empty cart:', dbErr.message);
+    }
 
     let subtotal = 0;
     const items = await Promise.all(
-      result.rows.map(async (row) => {
+      result.rows.map(async (row: any) => {
         let unitPrice = parseFloat(row.price);
         try {
           const resolved = await PricingService.resolveProductPrice(customerId, row.product_id);

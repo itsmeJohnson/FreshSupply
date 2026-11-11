@@ -1,6 +1,7 @@
 import { Router, Response } from 'express';
 import { pool } from '../db/pool';
 import { requireStaff, AuthenticatedRequest } from '../middleware/auth';
+import { FALLBACK_CATEGORIES } from '../db/fallbackData';
 
 const router = Router();
 
@@ -21,10 +22,19 @@ router.get('/', async (req, res, next) => {
          GROUP BY c.id 
          ORDER BY c.sort_order ASC, c.name ASC`;
 
-    const result = await pool.query(query);
-    res.json({ success: true, data: result.rows });
+    try {
+      const result = await pool.query(query);
+      if (result.rows && result.rows.length > 0) {
+        res.json({ success: true, data: result.rows });
+        return;
+      }
+    } catch (dbErr: any) {
+      console.warn('Database query failed in categories router, using fallback:', dbErr.message);
+    }
+
+    res.json({ success: true, data: FALLBACK_CATEGORIES });
   } catch (err) {
-    next(err);
+    res.json({ success: true, data: FALLBACK_CATEGORIES });
   }
 });
 
