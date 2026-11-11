@@ -11,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId = "com.freshsupply.app"
-        minSdk = 26
-        targetSdk = 35
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
 
@@ -21,16 +21,25 @@ android {
             useSupportLibrary = true
         }
 
-        val defaultDevUrl = "http://10.0.2.2:5001/api/"
+        val defaultDevUrl = "https://freshsupply-backend.vercel.app/api/"
         val customUrl = project.findProperty("freshSupplyApiBaseUrl") as? String
             ?: System.getenv("FRESHSUPPLY_API_URL")
 
         buildConfigField("String", "BASE_URL", "\"${customUrl ?: defaultDevUrl}\"")
     }
 
+    signingConfigs {
+        getByName("debug") {
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
+            enableV4Signing = false
+        }
+    }
+
     buildTypes {
         debug {
-            val defaultDevUrl = "http://10.0.2.2:5001/api/"
+            val defaultDevUrl = "https://freshsupply-backend.vercel.app/api/"
             val customUrl = project.findProperty("freshSupplyApiBaseUrl") as? String
                 ?: System.getenv("FRESHSUPPLY_API_URL")
             buildConfigField("String", "BASE_URL", "\"${customUrl ?: defaultDevUrl}\"")
